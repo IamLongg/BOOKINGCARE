@@ -84,7 +84,7 @@ class Login extends Component {
                   this.handleChangeUser(event);
                 }}
               />
-              <p className="form-text text-end">Enter Valid Username</p>
+              <p className="form-text text-end">Username khanh</p>
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
