@@ -84,7 +84,7 @@ class Login extends Component {
                   this.handleChangeUser(event);
                 }}
               />
-              <p className="form-text text-end">Username khanh</p>
+              <p className="form-text text-end"></p>
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
@@ -113,7 +113,7 @@ class Login extends Component {
                   }}
                 ></i>
               </span>
-              <p className="form-text text-end">Enter Valid Password</p>
+              <p className="form-text text-end"></p>
             </div>
             <div className="mb-4 form-check w-100">
               <label className="form-check-label">
