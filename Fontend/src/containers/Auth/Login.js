@@ -76,7 +76,6 @@ class Login extends Component {
           <form>
             <div className="mb-4">
               <input
-                style={{ fontSize: "1.4rem" }}
                 type="text"
                 className="form-control"
                 placeholder="Enter Username"
@@ -89,7 +88,6 @@ class Login extends Component {
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
-                style={{ fontSize: "1.4rem" }}
                 type={this.state.isShowPass ? "text" : "password"}
                 className="form-control"
                 placeholder="Enter Password"

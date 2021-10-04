@@ -18,14 +18,32 @@
     justify-content: right;
     ul {
       display: flex;
-      margin: none;
+      margin: 0;
       list-style: none;
       align-items: center;
       li {
         margin: 0 10px;
         a {
-          font-size: 18px;
+          position: relative;
+          font-size: 1.6rem;
+          color: #333;
           text-decoration: none;
+          &:hover {
+            border-color: #00cba7;
+            color: #00cba7;
+          }
+          &::before {
+            position: absolute;
+            content: "";
+            bottom: -1rem;
+            width: 0;
+            height: 0.2rem;
+            background-color: #00cba7;
+            transition: 0.25s linear;
+          }
+          &:hover::before {
+            width: 100%;
+          }
         }
       }
     }
@@ -37,8 +55,19 @@
     align-items: center;
     .flag {
       a {
+        font-size: 1.6rem;
         text-decoration: none;
+        color: #222;
       }
     }
   }
+}
+
+.home-banner {
+  margin-top: 5rem;
+  height: 80rem;
+  background: url("../../../assets/banner.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

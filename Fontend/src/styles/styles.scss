@@ -7,6 +7,6 @@ $fa-font-path: "~@fortawesome/fontawesome-free-webfonts/webfonts";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
 
-@import "reset";
-@import "base";
 @import "form";
+@import "base";
+@import "reset";
