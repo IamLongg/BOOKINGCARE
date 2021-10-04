@@ -76,9 +76,10 @@ class Login extends Component {
           <form>
             <div className="mb-4">
               <input
+                style={{ fontSize: "1.4rem" }}
                 type="text"
                 className="form-control"
-                placeholder="username"
+                placeholder="Enter Username"
                 value={this.state.email}
                 onChange={(event) => {
                   this.handleChangeUser(event);
@@ -88,6 +89,7 @@ class Login extends Component {
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
+                style={{ fontSize: "1.4rem" }}
                 type={this.state.isShowPass ? "text" : "password"}
                 className="form-control"
                 placeholder="Enter Password"
@@ -136,6 +138,7 @@ class Login extends Component {
             <button
               type="button"
               className="btn btn-primary w-100 my-3 shadow"
+              style={{ margin: "0", padding: "0" }}
               onClick={() => {
                 this.handleLogin();
               }}

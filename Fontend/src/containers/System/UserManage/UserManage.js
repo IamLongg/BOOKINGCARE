@@ -114,8 +114,8 @@ class UserManage extends Component {
   render() {
     let arrUsers = this.state.arrUsers;
     return (
-      <section className="ftco-section">
-        <div className="container" style={{ maxWidth: "1200px" }}>
+      <section>
+        <div>
           <ModalUser
             isOpen={this.state.isOpenModalUser}
             toggleFromParent={this.toggleModalUser}
@@ -136,13 +136,6 @@ class UserManage extends Component {
           </div>
           <div
             className="btn-primary"
-            style={{
-              display: "inline-block",
-              padding: "5px 8px",
-              borderRadius: "2px",
-              marginBottom: "2rem",
-              cursor: "pointer",
-            }}
             onClick={() => {
               this.handleAddNewUser();
             }}
@@ -150,61 +143,56 @@ class UserManage extends Component {
             <i className="fas fa-plus-circle" style={{ margin: "0 5px" }}></i>
             Add New User
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="table-wrap">
-                <table className="table">
-                  <thead className="thead-primary">
-                    <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Address</th>
-                      <th>CRUD</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {arrUsers &&
-                      arrUsers.map((item, index) => {
-                        return (
-                          <>
-                            <tr key={item.id}>
-                              <td>{item.id}</td>
-                              <td>{item.firstName}</td>
-                              <td>{item.lastName}</td>
-                              <td>{item.email}</td>
-                              <td>{item.address}</td>
-                              <td>
-                                <button
-                                  type="button"
-                                  className="btn btn-primary"
-                                  onClick={() => {
-                                    this.handleEditUser(item);
-                                  }}
-                                >
-                                  Edit
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-danger"
-                                  onClick={() => {
-                                    this.handleDeleteUser(item);
-                                  }}
-                                >
-                                  Delete
-                                </button>
-                              </td>
-                            </tr>
-                          </>
-                        );
-                      })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
         </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {arrUsers &&
+              arrUsers.map((item, index) => {
+                return (
+                  <>
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <td>{item.firstName}</td>
+                      <td>{item.lastName}</td>
+                      <td>{item.email}</td>
+                      <td>{item.address}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-info "
+                          onClick={() => {
+                            this.handleEditUser(item);
+                          }}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger "
+                          onClick={() => {
+                            this.handleDeleteUser(item);
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
+          </tbody>
+        </table>
       </section>
     );
   }
