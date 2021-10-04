@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import HeaderHome from "./Header/HeaderHome";
+import HomeHeader from "./Header/HomeHeader";
 
 class HomePage extends Component {
   render() {
-    return <HeaderHome />;
+    return <HomeHeader />;
   }
 }
 
