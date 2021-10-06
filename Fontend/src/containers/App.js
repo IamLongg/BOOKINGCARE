@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux";
 import { ToastContainer } from "react-toastify";
+import CustomScrollbars from "../components/CustomScrollbars";
 
 import {
   userIsAuthenticated,
@@ -44,10 +45,9 @@ class App extends Component {
     return (
       <Fragment>
         <Router history={history}>
-          <div className="main-container">
-            {this.props.isLoggedIn && <Header />}
-
-            <span className="content-container">
+          {this.props.isLoggedIn && <Header />}
+          <div className="wrapper">
+            <CustomScrollbars style={{ width: "100%", height: "100vh" }}>
               <Switch>
                 <Route path={path.HOME} exact component={Home} />
                 <Route
@@ -60,21 +60,21 @@ class App extends Component {
                 />
                 <Route path={path.HOMEPAGE} component={HomePage} />
               </Switch>
-            </span>
-
-            <ToastContainer
-              className="toast-container"
-              toastClassName="toast-item"
-              bodyClassName="toast-item-body"
-              autoClose={false}
-              hideProgressBar={true}
-              pauseOnHover={false}
-              pauseOnFocusLoss={true}
-              closeOnClick={false}
-              draggable={false}
-              closeButton={<CustomToastCloseButton />}
-            />
+            </CustomScrollbars>
           </div>
+
+          <ToastContainer
+            className="toast-container"
+            toastClassName="toast-item"
+            bodyClassName="toast-item-body"
+            autoClose={false}
+            hideProgressBar={true}
+            pauseOnHover={false}
+            pauseOnFocusLoss={true}
+            closeOnClick={false}
+            draggable={false}
+            closeButton={<CustomToastCloseButton />}
+          />
         </Router>
       </Fragment>
     );

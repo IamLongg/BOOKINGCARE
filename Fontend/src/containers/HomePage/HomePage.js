@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "../../styles/styles.scss";
 import HomeHeader from "./Header/HomeHeader";
-
+import Specialty from "./Specialty/Specialty";
+import Advertisment from "./Advertisment/Advertisment";
 class HomePage extends Component {
   render() {
-    return <HomeHeader />;
+    return (
+      <div>
+        <HomeHeader />
+        <Specialty />
+        <Advertisment />
+      </div>
+    );
   }
 }
 

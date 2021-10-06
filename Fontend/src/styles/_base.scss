@@ -5,15 +5,10 @@
 @import "reset";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap");
 
-body,
-html {
-  background-image: "#fff";
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: "Poppins", sans-serif;
+html,
+body {
   font-size: 62.5%;
-  height: 100vh;
-  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
 .btn {
@@ -27,7 +22,7 @@ html {
   -webkit-user-select: none;
   user-select: none;
   i {
-    font-size: $base-size - 3px;
+    font-size: calc(1.6rem - 3px);
   }
 }
 
@@ -68,28 +63,28 @@ html {
   font-family: $fontmain;
 }
 
-html {
-  font-size: 62.5%;
-  line-height: 1.6rem;
-  font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
-}
+// html {
+//   font-size: 62.5%;
+//   line-height: 1.6rem;
+//   font-family: "Roboto", sans-serif;
+//   overflow-x: hidden;
+// }
 
-.content-container {
-  .title {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: $base-size + 4px;
-    margin-top: 15px;
-    color: $colormain;
-  }
-  .content {
-    margin: 15px 30px;
-    box-shadow: 2px 2px 4px 0 $box-shadow-color;
-    -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
-  }
-}
+// .content-container {
+//   .title {
+//     text-align: center;
+//     text-transform: uppercase;
+//     font-weight: bold;
+//     font-size: $base-size + 4px;
+//     margin-top: 15px;
+//     color: $colormain;
+//   }
+//   .content {
+//     margin: 15px 30px;
+//     box-shadow: 2px 2px 4px 0 $box-shadow-color;
+//     -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
+//   }
+// }
 
 .modal {
   .modal-dialog {
@@ -102,14 +97,14 @@ html {
         .modal-title {
           line-height: 35px;
           font-weight: 500;
-          font-size: $base-size + 1px;
+          font-size: calc(1.6rem +1px);
         }
         .btn-close {
           position: absolute;
           color: $common-text-color;
           i {
             line-height: 35px;
-            font-size: $base-size + 2px;
+            font-size: calc(1.6rem + 2px);
           }
         }
       }
@@ -117,10 +112,17 @@ html {
   }
 }
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e1e1e1;
+}
+
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -129,8 +131,34 @@ html {
   font-family: Mulish;
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   text-align: center;
   color: white;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  .heading {
+    font-size: 2.5rem;
+    color: #12a58b;
+    line-height: 4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .more {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background-color: #fff;
+    color: #12a58b;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    transition: 0.25s linear;
+    &:hover {
+      color: #fff;
+      background-color: #12a58b;
+    }
+  }
 }

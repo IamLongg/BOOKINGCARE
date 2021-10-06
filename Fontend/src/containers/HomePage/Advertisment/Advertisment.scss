@@ -1,0 +1,18 @@
+@import "../../../styles/styles.scss";
+.advertisment {
+  padding: 8rem 0;
+  background-color: #f1f1f1;
+  &-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 4rem;
+    &-box {
+      padding: 2rem 4rem;
+      display: flex;
+      box-shadow: $box-shadow;
+      h3 {
+        padding: 1rem 2rem;
+      }
+    }
+  }
+}

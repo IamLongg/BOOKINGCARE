@@ -25,9 +25,9 @@
     .toast-close {
       position: absolute;
       right: 10px;
-      top:10px;
+      top: 10px;
       color: $common-text-color;
-      font-size: $base-size;
+      font-size: 1.6rem;
       padding: 0;
       cursor: pointer;
       background: transparent;
@@ -44,7 +44,7 @@
 
       .toast-title {
         font-weight: bold;
-        font-size: $base-size;
+        font-size: 1.6rem;
         margin: 0 20px 5px 0;
 
         .fixed-scroll-bar {
@@ -52,7 +52,7 @@
         }
         .date {
           float: right;
-          font-size: $base-size - 2px;
+          font-size: calc(1.6rem -2px);
           vertical-align: middle;
           margin-right: 5px;
           margin-bottom: 0;
@@ -66,7 +66,7 @@
       }
 
       .toast-content {
-        font-size: $base-size - 2px;
+        font-size: calc(1.6rem -2px);
       }
     }
   }

@@ -1,0 +1,45 @@
+.Specialty {
+  padding: 5rem 0;
+  &-main {
+    background-color: #fff;
+    .img-custom {
+      padding: 3rem 4rem;
+      .box {
+        border-radius: 0.5rem;
+        cursor: pointer;
+        .image {
+          width: 50%;
+          object-fit: cover;
+          margin: 0 auto;
+          background-color: rgb(176, 216, 205);
+          border-radius: 0.5rem;
+        }
+        .title {
+          margin-top: 1rem;
+          font-size: 1.8rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.slick-next {
+  right: -25px;
+}
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next,
+.slick-prev {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.slick-next::before,
+.slick-prev::before {
+  color: #12a58b;
+  opacity: 0.5;
+}
