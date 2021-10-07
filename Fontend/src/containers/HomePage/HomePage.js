@@ -4,13 +4,33 @@ import "../../styles/styles.scss";
 import HomeHeader from "./Header/HomeHeader";
 import Specialty from "./Specialty/Specialty";
 import Advertisment from "./Advertisment/Advertisment";
+import BannerHome from "./Banner/BannerHome";
+import HealthFaciality from "./HealthFaciality/HealthFaciality";
 class HomePage extends Component {
   render() {
+    let settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+    };
+    let settingsBanner = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      pauseOnHover: true,
+    };
     return (
       <div>
         <HomeHeader />
-        <Specialty />
+        <Specialty settings={settings} />
         <Advertisment />
+        <BannerHome settingsBanner={settingsBanner} />
+        <HealthFaciality />
       </div>
     );
   }
