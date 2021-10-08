@@ -1,0 +1,85 @@
+.Footer {
+  padding: 8rem 0;
+  background-color: #309c89;
+  &-title {
+    font-size: 3rem;
+    color: white;
+    line-height: 5rem;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    color: #f1f1f1;
+    padding: 0.5rem 0;
+    text-transform: capitalize;
+    line-height: 2.5rem;
+  }
+  p {
+    font-size: 1.4rem;
+    color: #ccc;
+  }
+  a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 1.4rem;
+    padding: 1rem 0;
+  }
+  &-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+    &-info {
+      .image {
+        background: url("../../../assets/logo.svg");
+        width: 80%;
+        height: 20%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &-connect {
+      .certificate-notify {
+        background: url("../../../assets/footer/certificate.png");
+        width: 50%;
+        height: 20%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 1rem;
+      }
+      .certificate-register {
+        background: url("../../../assets/footer/certificate1.png");
+        width: 50%;
+        height: 20%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &-appdown {
+      .qrcode {
+        background: url("../../../assets/footer/qr.png");
+        width: 50%;
+        height: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &-socials {
+      &-link {
+        margin-left: 2rem;
+        i {
+          font-size: 2.5rem;
+          color: #f1f1f1;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

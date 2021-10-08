@@ -3,12 +3,11 @@
  */
 
 @import "reset";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap");
 
 html,
 body {
   font-size: 62.5%;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .btn {
@@ -62,13 +61,6 @@ body {
 #password::placeholder {
   font-family: $fontmain;
 }
-
-// html {
-//   font-size: 62.5%;
-//   line-height: 1.6rem;
-//   font-family: "Roboto", sans-serif;
-//   overflow-x: hidden;
-// }
 
 // .content-container {
 //   .title {
@@ -161,4 +153,10 @@ body {
       background-color: #12a58b;
     }
   }
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  text-align: center;
 }

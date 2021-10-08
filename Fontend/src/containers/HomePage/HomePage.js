@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../../styles/styles.scss";
+
 import HomeHeader from "./Header/HomeHeader";
 import Specialty from "./Specialty/Specialty";
 import Advertisment from "./Advertisment/Advertisment";
 import BannerHome from "./Banner/BannerHome";
 import HealthFaciality from "./HealthFaciality/HealthFaciality";
+import OutstandingDoctor from "./OutstandingDoctor/OutstandingDoctor";
+import HandBook from "./HandBook/HandBook";
+import About from "./About/About";
+import Footer from "./Footer/Footer";
 class HomePage extends Component {
   render() {
     let settings = {
@@ -31,6 +36,10 @@ class HomePage extends Component {
         <Advertisment />
         <BannerHome settingsBanner={settingsBanner} />
         <HealthFaciality />
+        <OutstandingDoctor />
+        <HandBook />
+        <About />
+        <Footer />
       </div>
     );
   }
