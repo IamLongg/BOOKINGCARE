@@ -77,12 +77,12 @@
       .language-en {
         margin: 0 0.5rem;
         font-weight: 700;
-        opacity: 0.3;
-        &:hover {
-          opacity: 0.8;
-        }
+        opacity: 1;
         &.active {
           color: rgb(26, 26, 243);
+        }
+        &:hover {
+          opacity: 0.8;
         }
       }
     }

@@ -171,6 +171,7 @@ class UserManage extends Component {
                         <button
                           type="button"
                           className="btn btn-info "
+                          style={{ fontSize: "1.2rem" }}
                           onClick={() => {
                             this.handleEditUser(item);
                           }}
@@ -180,6 +181,7 @@ class UserManage extends Component {
                         <button
                           type="button"
                           className="btn btn-danger "
+                          style={{ fontSize: "1.2rem" }}
                           onClick={() => {
                             this.handleDeleteUser(item);
                           }}

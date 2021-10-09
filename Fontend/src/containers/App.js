@@ -10,17 +10,12 @@ import {
   userIsAuthenticated,
   userIsNotAuthenticated,
 } from "../hoc/authentication";
-
 import { path } from "../utils";
-
 import Home from "../routes/Home";
-// import Login from '../routes/Login';
 import Login from "./Auth/Login";
-import Header from "./Header/Header";
 import System from "../routes/System";
-
-import { CustomToastCloseButton } from "../components/CustomToast";
 import HomePage from "./HomePage/HomePage.js";
+import { CustomToastCloseButton } from "../components/CustomToast";
 
 class App extends Component {
   handlePersistorState = () => {
@@ -45,7 +40,6 @@ class App extends Component {
     return (
       <Fragment>
         <Router history={history}>
-          {this.props.isLoggedIn && <Header />}
           <div className="wrapper">
             <CustomScrollbars style={{ width: "100%", height: "100vh" }}>
               <Switch>
@@ -84,7 +78,6 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     started: state.app.started,
-    isLoggedIn: state.user.isLoggedIn,
   };
 };
 
