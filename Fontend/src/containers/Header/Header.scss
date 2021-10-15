@@ -10,11 +10,15 @@
   position: relative;
 
   .languages {
+
     font-size: 1.4rem;
+    .welcome {
+      margin-right: 10px;
+    }
     .language-vi {
       cursor: pointer;
       &.active {
-        color: rgba(255, 11, 11, 0.699);
+        color: rgba(255, 218, 11, 0.993);
       }
     }
     .language-en {
@@ -22,7 +26,7 @@
 
       cursor: pointer;
       &.active {
-        color: rgb(26, 26, 243);
+        color: rgb(51, 243, 26);
       }
     }
   }
