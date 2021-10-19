@@ -12,24 +12,24 @@
     "descbanner": "Actively book smart appointments and be taken care of"
   },
   "menu": {
-    "admin":{
+    "admin": {
       "manage-user": "User",
       "manage-doctor": "Manage doctors",
       "manage-admin": "Manage admins",
       "crud": "CRUD user",
       "crud-redux": "CRUD redux",
       "clinic": "Clinics",
-      "manage-clinic":"Manage clinics",
+      "manage-clinic": "Manage clinics",
       "specialty": "Specialties",
       "manage-specialty": "Manage specialties",
       "handbook": "Handbooks",
       "manage-handbook": "Manage handbooks"
     }
   },
-  "manage-user":{
-    "add":"Add a new user ",
-    "email":"Email",
-    "password":"password",
+  "manage-user": {
+    "add": "Add a new user ",
+    "email": "Email",
+    "password": "password",
     "first-name": "firs-tname",
     "last-name": "last-name",
     "phone-number": "phone-numbe",
@@ -37,8 +37,8 @@
     "gender": "gender",
     "position": "position",
     "role": "role",
-    "image":"Avatar",
-    "Save": "Save"
-
+    "image": "Avatar",
+    "Save": "Save",
+    "Edit": "Edit user"
   }
 }

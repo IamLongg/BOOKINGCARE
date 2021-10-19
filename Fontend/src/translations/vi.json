@@ -12,24 +12,24 @@
     "descbanner": "Chủ động đặt lịch hẹn thông minh và được chăm sóc tận tình"
   },
   "menu": {
-    "admin":{
+    "admin": {
       "manage-user": "Người dùng",
       "manage-doctor": "Quản lý bác sĩ",
       "manage-admin": "Quản lý admin",
       "crud": "CRUD user",
       "crud-redux": "CRUD redux",
       "clinic": "Phòng khám",
-      "manage-clinic":"Quản lý phòng khám",
+      "manage-clinic": "Quản lý phòng khám",
       "specialty": "chuyên khoa",
       "manage-specialty": "Quản lý chuyên khoa",
       "handbook": "Cẩm Nang",
       "manage-handbook": "Quản lý cẩm nang"
     }
   },
-  "manage-user":{
-    "add":"Thêm mới người dùng",
-    "email":"Email",
-    "password":"Mật khẩu",
+  "manage-user": {
+    "add": "Thêm mới người dùng",
+    "email": "Email",
+    "password": "Mật khẩu",
     "first-name": "Họ",
     "last-name": "Tên",
     "phone-number": "Số điện thoại",
@@ -37,8 +37,8 @@
     "gender": "Giới tính",
     "position": "Chức danh",
     "role": "Vai trò",
-    "image":"Ảnh đại diện",
-    "Save": "Lưu user"
-
+    "image": "Ảnh đại diện",
+    "Save": "Luu user",
+    "Edit": "Luu thay doi"
   }
 }
