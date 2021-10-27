@@ -86,7 +86,7 @@ class OutstandingDoctor extends Component {
                 })
                 }
 
-
+                Phạm Văn Khánh đã chạy
                 {/* <div className="img-custom">
                   <div className="box">
                     <div className="image" />
