@@ -22,13 +22,13 @@ const editUserApi = (data) => {
   return axios.put(`${baseURL}/api/edit-user`, data);
 };
 
-const getALLCodeSerVice = (inputType) => {
-  return axios.get(`${baseURL}/api/allcode?type=${inputType}`);
-};
+// const getALLCodeSerVice = (inputType) => {
+//   return axios.get(`${baseURL}/api/allcode?type=${inputType}`);
+// };
 
-const getTopDoctorHomeService = (limit) => {
-  return axios.get(`/api/top-doctor-home?limit=${limit}`)
-}
+// const getTopDoctorHomeService = (limit) => {
+//   return axios.get(`/api/top-doctor-home?limit=${limit}`)
+// }
 
 export {
   handleLoginApi,
@@ -36,6 +36,6 @@ export {
   createNewUserService,
   deleteUser,
   editUserApi,
-  getALLCodeSerVice,
-  getTopDoctorHomeService
+  // getALLCodeSerVice,
+  // getTopDoctorHomeService
 };

@@ -119,8 +119,8 @@ let createNewUser = (data) => {
           numberPhone: data.numberPhone,
           gender: data.gender,
           roleID: data.roleID,
-          positionId: data.positionId,
-          image: data.avatar
+          // positionId: data.positionId,
+          // image: data.avatar
         });
 
         resolve({
@@ -161,7 +161,7 @@ let deleteUser = (id) => {
 let updateUserData = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!data.id || !data.roleID || !data.positionId || !data.gender) {
+      if (!data.id /*|| !data.roleID || !data.positionId || !data.gender*/) {
         resolve({
           errCode: 2,
           errMessage: "missing required param",
@@ -175,12 +175,12 @@ let updateUserData = (data) => {
         user.firstName = data.firstName;
         user.lastName = data.lastName;
         user.address = data.address;
-        user.roleID = data.roleID;
-        user.positionId = data.positionId;
-        user.roleID = data.roleID;
-        user.gender = data.gender;
-        user.numberPhone = data.numberPhone;
-        user.image = data.avatar;
+        // user.roleID = data.roleID;
+        // user.positionId = data.positionId;
+        // user.roleID = data.roleID;
+        // user.gender = data.gender;
+        // user.numberPhone = data.numberPhone;
+        // user.image = data.avatar;
         await user.save();
 
         resolve({
