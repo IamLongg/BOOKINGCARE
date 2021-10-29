@@ -7,4 +7,4 @@ class CommonUtils {
         return false;
 }
 }
-// export default CommonUtils;
+export default CommonUtils;
