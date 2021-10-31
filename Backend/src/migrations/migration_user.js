@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.BIGINT,
       },
       gender: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
       },
       roleID: {
         type: Sequelize.STRING,

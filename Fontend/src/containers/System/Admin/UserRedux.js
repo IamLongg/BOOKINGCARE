@@ -252,7 +252,7 @@
 //                       <label><FormattedMessage id="manage-user.phone-number" /></label>
 //                       <input className="form-control" type="text"
 //                         // value={phoneNumber}
-//                         // onChange={(event) => { this.onChangeInput(event, 'phoneNumber') }} 
+//                         // onChange={(event) => { this.onChangeInput(event, 'phoneNumber') }}
 //                         />
 //                     </div>
 //                     <div className="col-9">
@@ -349,7 +349,6 @@
 //                         </button> */}
 //                       </div>
 
-
 //                     </div>
 
 //                     {/* <div className="col-12 mb-5">
@@ -361,9 +360,6 @@
 //                   </div>
 //                 </div>
 
-
-
-
 //               </div>
 //               // {this.state.isOpen === true &&
 //               //   <Lightbox
@@ -372,7 +368,6 @@
 //               //   />
 
 //               // }
-
 
 //           );
 //         }
@@ -411,20 +406,17 @@
 
 //       export default connect(mapStateToProps, mapDispatchToProps)(UserRedux);
 
-
-
-
-
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
+
 class UserRedux extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     return (

@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      keyMap: {
+      key: {
         type: Sequelize.STRING,
       },
       type: {
@@ -19,14 +19,6 @@ module.exports = {
       },
       valueVI: {
         type: Sequelize.STRING,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
       },
     });
   },

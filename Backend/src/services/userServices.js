@@ -109,18 +109,16 @@ let createNewUser = (data) => {
           errMessage: "Email is exist. Please try email other",
         });
       } else {
-        let hashPasswordFromBcrypt = await hashUserPassword(data.password);
+        let hashPassword = await hashUserPassword(data.password);
         await db.User.create({
           email: data.email,
-          password: hashPasswordFromBcrypt,
+          password: hashPassword,
           firstName: data.firstName,
           lastName: data.lastName,
           address: data.address,
           numberPhone: data.numberPhone,
-          gender: data.gender,
+          gender: data.gender == "1" ? true : false,
           roleID: data.roleID,
-          // positionId: data.positionId,
-          // image: data.avatar
         });
 
         resolve({
@@ -161,7 +159,7 @@ let deleteUser = (id) => {
 let updateUserData = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!data.id /*|| !data.roleID || !data.positionId || !data.gender*/) {
+      if (!data.id) {
         resolve({
           errCode: 2,
           errMessage: "missing required param",
@@ -175,12 +173,6 @@ let updateUserData = (data) => {
         user.firstName = data.firstName;
         user.lastName = data.lastName;
         user.address = data.address;
-        // user.roleID = data.roleID;
-        // user.positionId = data.positionId;
-        // user.roleID = data.roleID;
-        // user.gender = data.gender;
-        // user.numberPhone = data.numberPhone;
-        // user.image = data.avatar;
         await user.save();
 
         resolve({
