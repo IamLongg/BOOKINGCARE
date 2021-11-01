@@ -14,11 +14,19 @@ module.exports = {
       type: {
         type: Sequelize.STRING,
       },
-      valueEN: {
+      valueEn: {
         type: Sequelize.STRING,
       },
-      valueVI: {
+      valueVi: {
         type: Sequelize.STRING,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
     });
   },

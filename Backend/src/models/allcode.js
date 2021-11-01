@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       key: DataTypes.STRING,
       type: DataTypes.STRING,
-      valueEN: DataTypes.STRING,
-      valueVI: DataTypes.STRING,
+      valueEn: DataTypes.STRING,
+      valueVi: DataTypes.STRING,
     },
     {
       sequelize,
