@@ -542,7 +542,7 @@ class UserRedux extends Component {
     console.log("brodev check state from redux", this.state);
 
     let genders = this.state.genderArr;
-    let positions = this.props.positionArr;
+    let positions = this.state.positionArr;
     let roles = this.state.roleArr;
     let language = this.props.language;
     let isGetGenders = this.props.isLoadingGender;
@@ -687,11 +687,13 @@ class UserRedux extends Component {
                   {positions &&
                     positions.length > 0 &&
                     positions.map((item, index) => {
-                      <option key={index} value={item.key}>
-                        {language === LANGUAGES.VI
-                          ? item.valueVi
-                          : item.valueEn}
-                      </option>;
+                      return (
+                        <option key={index} value={item.key}>
+                          {language === LANGUAGES.VI
+                            ? item.valueVi
+                            : item.valueEn}
+                        </option>
+                      );
                     })}
                 </select>
               </div>
