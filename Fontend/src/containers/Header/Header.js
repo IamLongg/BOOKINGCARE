@@ -25,7 +25,11 @@ class Header extends Component {
         <div className="languages">
           <span className="Welcome" style={{ marginRight: "2rem" }}>
             <FormattedMessage id="homeheader.welcome" />{" "}
-            {userInfo && userInfo.firstName ? userInfo.firstName : ""} !{" "}
+            {
+              (userInfo && userInfo.firstName,
+              userInfo.lastName ? userInfo.firstName + userInfo.lastName : "")
+            }{" "}
+            !{" "}
           </span>
           <span
             className={
