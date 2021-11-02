@@ -160,7 +160,7 @@ let deleteUser = (id) => {
 let updateUserData = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!data.id) {
+      if (!data.id || !data.roleID || !data.gender || !data.positionID) {
         resolve({
           errCode: 2,
           errMessage: "missing required param",
@@ -174,6 +174,10 @@ let updateUserData = (data) => {
         user.firstName = data.firstName;
         user.lastName = data.lastName;
         user.address = data.address;
+        user.roleID = data.roleID;
+        user.positionID = data.positionID;
+        user.gender = data.gender;
+        user.numberPhone = data.numberPhone;
         await user.save();
 
         resolve({
