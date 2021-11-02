@@ -410,11 +410,12 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { getALLCodeSerVice } from "../../../services/userService";
-import { LANGUAGES, CRUD_ACTIONS } from "../../../utils";
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from "../../../utils";
 import * as actions from "../../../store/actions";
 import "./UserRedux.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
+
 import TableManageUser from "./TableManageUser";
 
 class UserRedux extends Component {
@@ -501,10 +502,11 @@ class UserRedux extends Component {
     let data = event.target.files;
     let file = data[0];
     if (file) {
+      let base64 = await CommonUtils.getBase64(file);
       let objectUrl = URL.createObjectURL(file);
       this.setState({
         previewImgURL: objectUrl,
-        avatar: file,
+        avatar: base64,
       });
     }
   };
@@ -523,6 +525,7 @@ class UserRedux extends Component {
     let { action } = this.state;
 
     if (action === CRUD_ACTIONS.CREATE) {
+      //fire redux create user
       this.props.createNewUser({
         email: this.state.email,
         password: this.state.password,
@@ -533,10 +536,12 @@ class UserRedux extends Component {
         gender: this.state.gender,
         roleID: this.state.role,
         positionID: this.state.position,
+        avatar: this.state.avatar,
       });
     }
 
     if (action === CRUD_ACTIONS.EDIT) {
+      //fire redux edit user
       this.props.editUserRedux({
         id: this.state.userEditID,
         email: this.state.email,
@@ -548,7 +553,7 @@ class UserRedux extends Component {
         gender: this.state.gender,
         roleID: this.state.role,
         positionID: this.state.position,
-        // avatar: this.state.avatar,
+        avatar: this.state.avatar,
       });
     }
   };
@@ -583,7 +588,11 @@ class UserRedux extends Component {
   };
 
   handleEditUserFromParent = (user) => {
-    console.log("brodev check handle edit user from parent", user);
+    let imageBase64 = "";
+    if (user.image) {
+      imageBase64 = new Buffer(user.image, "base64").toString("binary");
+    }
+
     this.setState({
       email: user.email,
       password: "HARDCODE",
@@ -595,6 +604,7 @@ class UserRedux extends Component {
       gender: user.gender,
       role: user.roleID,
       avatar: "",
+      previewImgURL: imageBase64,
       action: CRUD_ACTIONS.EDIT,
       userEditID: user.id,
     });
