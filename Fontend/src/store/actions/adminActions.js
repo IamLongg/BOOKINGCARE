@@ -230,6 +230,7 @@ import {
   getAllUsers,
   deleteUser,
   editUserApi,
+  getTopDoctorHomeService,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 // export const fetchGenderStart = () => ({
@@ -417,3 +418,26 @@ export const editUserSuccess = () => ({
 export const editUserFailed = () => ({
   type: actionTypes.EDIT_USER_FAILDED,
 });
+
+export const fetchTopDoctor = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getTopDoctorHomeService("");
+      console.log("check response", res);
+      if (res && res.data.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,
+          dataDoctors: res.data.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_TOP_DOCTORS_FAILDED,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: actionTypes.FETCH_TOP_DOCTORS_FAILDED,
+      });
+    }
+  };
+};
