@@ -1,21 +1,50 @@
-.preview-img-container{
-    .label-upload{
+.user-redux-container {
+  font-size: 1.4rem;
+  .form-control {
+    font-size: 1.4rem;
+  }
+  .btn {
+    margin: 1rem 1rem 1rem 0;
+    font-size: 1.4rem;
+  }
+  .btn-warning {
+    width: 10rem;
+    height: 4rem;
+  }
+  .btn-primary {
+    width: 10rem;
+    height: 4rem;
+  }
+}
+
+.preview-img-container {
+  .label-upload {
+    font-size: 1.4rem;
     padding: 5px;
     border-radius: 3px;
-    background: #ddd;
+    background-color: rgb(237, 237, 241);
     cursor: pointer;
+  }
 
-    &:hover{
-        opacity: 0.9;
-    }
+  &:hover {
+    opacity: 0.9;
+  }
 }
-    .preview-image{
-        width: 100px;
-        height: 50px;
-        border: 1px solid #ddd;
-        background: center center no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
+.preview-image {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #ddd;
+  background: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  margin-top: 1rem;
+}
 
+.col-3,
+.col-9 {
+  margin: 1rem 0;
+}
+
+.btn {
+  margin: 0;
 }

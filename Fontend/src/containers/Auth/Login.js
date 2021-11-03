@@ -76,6 +76,7 @@ class Login extends Component {
           <form>
             <div className="mb-4">
               <input
+                style={{ fontSize: "1.4rem" }}
                 type="text"
                 className="form-control"
                 placeholder="Enter Username"
@@ -84,10 +85,13 @@ class Login extends Component {
                   this.handleChangeUser(event);
                 }}
               />
-              <p className="form-text text-end">Enter Valid User</p>
+              <p className="form-text text-end" style={{ fontSize: "1.2rem" }}>
+                Enter Valid User
+              </p>
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
+                style={{ fontSize: "1.4rem" }}
                 type={this.state.isShowPass ? "text" : "password"}
                 className="form-control"
                 placeholder="Enter Password"
@@ -113,12 +117,21 @@ class Login extends Component {
                   }}
                 ></i>
               </span>
-              <p className="form-text text-end">Enter Valid Password</p>
+              <p className="form-text text-end" style={{ fontSize: "1.2rem" }}>
+                Enter Valid Password
+              </p>
             </div>
-            <div className="mb-4 form-check w-100">
+            <div
+              className="mb-4 form-check w-100"
+              style={{ display: "flex", justifyContent: "space-between" }}
+            >
               <label className="form-check-label">
-                <input type="checkbox" className="form-check-input" /> Remember
-                Me
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  style={{ fontSize: "1.2rem" }}
+                />{" "}
+                Remember Me
               </label>
               <a
                 href="#"

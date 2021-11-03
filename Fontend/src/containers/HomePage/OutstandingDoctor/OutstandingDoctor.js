@@ -6,35 +6,34 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.scss";
 import "./OutstandingDoctor.scss";
 import logoDoctor from "../../../assets/outstandingdoctor/logodoctor.png";
-import * as actions from '../../../store/actions';
-import {LANGUAGES} from '../../../utils';
+// import * as actions from '../../../store/actions';
+// import {LANGUAGES} from '../../../utils';
 class OutstandingDoctor extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     arrDoctors: []
+  //   }
+  // }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      arrDoctors: []
-    }
-  }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   if (prevProps.topDoctorRedux !== this.props.topDoctorRedux) {
+  //     this.setState({
+  //       arrDoctors: this.props.topDoctorRedux
+  //     })
+  //   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.topDoctorRedux !== this.props.topDoctorRedux) {
-      this.setState({
-        arrDoctors: this.props.topDoctorRedux 
-      })
-    }
+  // }
 
-  }
-
-  componentDidMount() {
-    this.props.loadTopDoctors();
-  }
+  // componentDidMount() {
+  //   this.props.loadTopDoctors();
+  // }
 
   render() {
-    let arrDoctors = this.state.arrDoctors;
-    let {language} = this.props;
-    arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
-    console.log('khanh :', arrDoctors)
+    // let arrDoctors = this.state.arrDoctors;
+    // let {language} = this.props;
+    // arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
+    // console.log('khanh :', arrDoctors)
     let settings = {
       dots: false,
       infinite: true,
@@ -61,7 +60,16 @@ class OutstandingDoctor extends Component {
             </div>
             <div className="OutstandingDoctor-container-main">
               <Slider {...settings}>
-                {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
+                <div className="img-custom">
+                  <div className="box">
+                    <div className="image" />
+                    <h3 className="title-name">Ths.BSNT Đỗ Thị Dung</h3>
+                    <p className="subtitle">bác sĩ ơi</p>
+                    <p className="subtitle">chuyên khoa tai mũi họng</p>
+                  </div>
+                </div>
+
+                {/* {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
                   let imagabase64='';
                   if (item.image) {
                     imagabase64 = new Buffer(item.image, 'base64').toString('binary');
@@ -86,15 +94,7 @@ class OutstandingDoctor extends Component {
                 })
                 }
 
-                Phạm Văn Khánh đã chạy
-                {/* <div className="img-custom">
-                  <div className="box">
-                    <div className="image" />
-                    <h3 className="title-name">Ths.BSNT Đỗ Thị Dung</h3>
-                    <p className="subtitle">bác sĩ ơi</p>
-                    <p className="subtitle">chuyên khoa tai mũi họng</p>
-                  </div>
-                </div>
+                Phạm Văn Khánh đã chạy */}
                 <div className="img-custom">
                   <div className="box">
                     <div className="image" />
@@ -118,7 +118,15 @@ class OutstandingDoctor extends Component {
                     <p className="subtitle">bác sĩ ơi</p>
                     <p className="subtitle">chuyên khoa tai mũi họng</p>
                   </div>
-                </div> */}
+                </div>
+                <div className="img-custom">
+                  <div className="box">
+                    <div className="image" />
+                    <h3 className="title-name">Ths.BSNT Đỗ Thị Dung</h3>
+                    <p className="subtitle">bác sĩ ơi</p>
+                    <p className="subtitle">chuyên khoa tai mũi họng</p>
+                  </div>
+                </div>
               </Slider>
             </div>
           </div>
@@ -131,14 +139,14 @@ class OutstandingDoctor extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
-    topDoctorRedux: state.admin.topDoctors,
+    // topDoctorRedux: state.admin.topDoctors,
     language: state.app.language,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadTopDoctors: () => dispatch(actions.fetchTopDoctor())
+    // loadTopDoctors: () => dispatch(actions.fetchTopDoctor())
   };
 };
 

@@ -8,16 +8,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      keyMap: {
+      key: {
         type: Sequelize.STRING,
       },
       type: {
         type: Sequelize.STRING,
       },
-      valueEN: {
+      valueEn: {
         type: Sequelize.STRING,
       },
-      valueVI: {
+      valueVi: {
         type: Sequelize.STRING,
       },
       createdAt: {

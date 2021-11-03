@@ -97,6 +97,7 @@ class ModalEditUser extends Component {
                     Email
                   </label>
                   <input
+                    style={{ fontSize: "1.6rem", marginBottom: "2rem" }}
                     type="email"
                     className="form-control"
                     name="email"
@@ -109,6 +110,7 @@ class ModalEditUser extends Component {
                 </div>
                 <div className="col-md-6">
                   <input
+                    style={{ fontSize: "1.6rem" }}
                     type="text"
                     className="form-control"
                     placeholder="First name"
@@ -121,6 +123,7 @@ class ModalEditUser extends Component {
                 </div>
                 <div className="col-md-6">
                   <input
+                    style={{ fontSize: "1.6rem" }}
                     type="text"
                     className="form-control"
                     placeholder="Last name"
@@ -137,6 +140,7 @@ class ModalEditUser extends Component {
                     Address
                   </label>
                   <input
+                    style={{ fontSize: "1.6rem" }}
                     type="text"
                     className="form-control"
                     name="address"
@@ -158,7 +162,7 @@ class ModalEditUser extends Component {
               this.handleSaveUser();
             }}
           >
-            Save Change
+            Save
           </Button>{" "}
           <Button
             color="secondary"

@@ -95,6 +95,7 @@ class ModalUser extends Component {
                   <input
                     type="text"
                     className="form-control"
+                    style={{ fontSize: "1.4rem" }}
                     placeholder="First name"
                     name="firstName"
                     value={firstName}
@@ -107,6 +108,7 @@ class ModalUser extends Component {
                   <input
                     type="text"
                     className="form-control"
+                    style={{ fontSize: "1.4rem", margin: "2rem 0" }}
                     placeholder="Last name"
                     name="lastName"
                     value={lastName}
@@ -151,6 +153,7 @@ class ModalUser extends Component {
                     type="text"
                     className="form-control"
                     name="address"
+                    style={{ fontSize: "1.4rem" }}
                     placeholder="1234 Main St"
                     value={address}
                     onChange={(event) => {

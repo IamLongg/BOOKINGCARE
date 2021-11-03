@@ -29,16 +29,16 @@
   "manage-user": {
     "add": "Add a new user ",
     "email": "Email",
-    "password": "password",
-    "first-name": "firs-tname",
-    "last-name": "last-name",
-    "phone-number": "phone-numbe",
-    "address": "address",
-    "gender": "gender",
-    "position": "position",
-    "role": "role",
+    "password": "Password",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "phone-number": "Phone Number",
+    "address": "Address",
+    "gender": "Gender",
+    "position": "Position",
+    "role": "Role",
     "image": "Avatar",
     "Save": "Save",
-    "Edit": "Edit user"
+    "Edit": "Edit User"
   }
 }

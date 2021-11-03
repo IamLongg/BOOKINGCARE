@@ -5,7 +5,7 @@
     "health-facilities": "Cơ Sở Y Tế",
     "handbook": "Cẩm Nang",
     "cooperation-contact": "Liên Hệ Hợp Tác",
-    "welcome": "xin chào, "
+    "welcome": "Xin chào, "
   },
   "homebanner": {
     "finddoctor": "Tìm bác sĩ - bệnh nhân dễ dàng hơn",
@@ -38,7 +38,7 @@
     "position": "Chức danh",
     "role": "Vai trò",
     "image": "Ảnh đại diện",
-    "Save": "Luu user",
-    "Edit": "Luu thay doi"
+    "Save": "Thêm",
+    "Edit": "Lưu thay đổi"
   }
 }
