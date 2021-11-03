@@ -71,7 +71,7 @@ class OutstandingDoctor extends Component {
                     let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                     let nameEn = `${item.positionData.valueEn}, ${item.lastName} ${item.firstName}`;
                     return (
-                      <div className="img-custom">
+                      <div className="img-custom" key={index}>
                         <div className="box">
                           <div
                             className="image"

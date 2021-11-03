@@ -35,7 +35,7 @@
       }
     }
     &-main {
-      background-color: #309c89;
+      background-color: #1e6a56;
       border-radius: 0.5rem;
       padding: 4rem 0;
       width: 65%;
@@ -75,24 +75,4 @@
       }
     }
   }
-}
-
-.slick-next {
-  right: -25px;
-}
-.slick-prev {
-  left: -25px;
-}
-
-.slick-next,
-.slick-prev {
-  width: 40px;
-  height: 40px;
-  z-index: 1;
-}
-
-.slick-next::before,
-.slick-prev::before {
-  color: #12a58b;
-  opacity: 0.5;
 }
