@@ -44,16 +44,18 @@ class OutstandingDoctor extends Component {
       <div className="OutstandingDoctor">
         <div className="container">
           <div className="info">
-            <div className="heading">bác sĩ nổi bậc</div>
-            <button className="more">xem thêm</button>
+            <div className="heading">
+              <FormattedMessage id="outstandingdoctor-home.title" />
+            </div>
+            <button className="more">
+              <FormattedMessage id="outstandingdoctor-home.more-info" />
+            </button>
           </div>
           <div className="OutstandingDoctor-container">
             <div className="OutstandingDoctor-container-content">
               <div className="subheading"></div>
               <h5>
-                Đặt khám trực tiếp tới đội ngũ bác sĩ của ISOFHCARE có trình độ
-                chuyên môn cao, nhiều năm kinh nghiệm, giàu y đức, giúp bạn hoàn
-                toàn chủ động lựa chọn thời gian khám
+                <FormattedMessage id="outstandingdoctor-home.desc" />
               </h5>
               <img src={logoDoctor} className="logo-image" />
             </div>
@@ -68,8 +70,8 @@ class OutstandingDoctor extends Component {
                         "binary"
                       );
                     }
-                    let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
-                    let nameEn = `${item.positionData.valueEn}, ${item.lastName} ${item.firstName}`;
+                    let nameVi = `${item.positionData.valueVi}, ${item.firstName}  ${item.lastName}`;
+                    let nameEn = `${item.positionData.valueEn}, ${item.firstName}  ${item.lastName}`;
                     return (
                       <div className="img-custom" key={index}>
                         <div className="box">
@@ -80,7 +82,9 @@ class OutstandingDoctor extends Component {
                           <h3 className="title-name">
                             {language === LANGUAGES.VI ? nameVi : nameEn}
                           </h3>
-                          <p className="subtitle">bác sĩ ơi</p>
+                          <p className="subtitle">
+                            <FormattedMessage id="outstandingdoctor-home.doctor" />
+                          </p>
                           <p className="subtitle">chuyên khoa tai mũi họng</p>
                         </div>
                       </div>

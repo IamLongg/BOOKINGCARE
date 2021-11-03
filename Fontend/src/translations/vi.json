@@ -40,5 +40,12 @@
     "image": "Ảnh đại diện",
     "Save": "Thêm",
     "Edit": "Lưu thay đổi"
+  },
+
+  "outstandingdoctor-home": {
+    "title": "BÁC SĨ NỔI BẬC",
+    "more-info": "Xem thêm",
+    "desc": "Đặt khám trực tiếp tới đội ngũ bác sĩ của ISOFHCARE có trình độ chuyên môn cao, nhiều năm kinh nghiệm, giàu y đức, giúp bạn hoàn toàn chủ động lựa chọn thời gian khám",
+    "doctor": "Bác sĩ ơi"
   }
 }

@@ -40,5 +40,11 @@
     "image": "Avatar",
     "Save": "Create",
     "Edit": "Edit User"
+  },
+  "outstandingdoctor-home": {
+    "title": "Outstanding Doctor",
+    "more-info": "More Info",
+    "desc": "Set up directly to ISOFHCARE's team of highly qualified doctors, many years of experience, rich in medical ethics, helping you to choose from time to time.",
+    "doctor": "Doctor"
   }
 }
