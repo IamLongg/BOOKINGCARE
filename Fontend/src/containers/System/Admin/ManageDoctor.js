@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
 import "./ManageDoctor.scss";
+import { LANGUAGES } from "../../../utils";
 import Select from "react-select";
 
 import MarkdownIt from "markdown-it";
@@ -12,12 +13,6 @@ import "react-markdown-editor-lite/lib/index.css";
 // Initialize a markdown parser
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
-
 class ManageDoctor extends Component {
   constructor(props) {
     super(props);
@@ -25,13 +20,48 @@ class ManageDoctor extends Component {
       contentMarkDown: "",
       contentHTML: "",
       selectedOption: "",
-      desctiption: "",
+      description: "",
+      listDoctors: [],
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.fetchAllDoctors();
+  }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {}
+  buildDataInputSelect = (inputData) => {
+    let result = [];
+    let { language } = this.props;
+    if (inputData && inputData.length > 0) {
+      inputData.map((item, index) => {
+        let object = {};
+        let labelVi = `${item.firstName} ${item.lastName}`;
+        let labelEn = `${item.lastName} ${item.firstName}`;
+
+        object.label = language === LANGUAGES.VI ? labelVi : labelEn;
+        object.value = item.id;
+        result.push(object);
+      });
+    }
+
+    return result;
+  };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.allDoctors !== this.props.allDoctors) {
+      let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
+      this.setState({
+        listDoctors: dataSelect,
+      });
+    }
+
+    if (prevProps.language !== this.props.language) {
+      let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
+      this.setState({
+        listDoctors: dataSelect,
+      });
+    }
+  }
 
   // Finish!
   handleEditorChange = ({ html, text }) => {
@@ -42,7 +72,12 @@ class ManageDoctor extends Component {
   };
 
   handleSaveContent = () => {
-    console.log("check state", this.state);
+    this.props.saveDetailDoctor({
+      contentHTML: this.state.contentHTML,
+      contentMarkDown: this.state.contentMarkDown,
+      description: this.state.description,
+      doctorID: this.state.selectedOption.value,
+    });
   };
 
   handleChange = (selectedOption) => {
@@ -52,10 +87,11 @@ class ManageDoctor extends Component {
 
   handleOnchangeDesc = (event) => {
     this.setState({
-      desctiption: event.target.value,
+      description: event.target.value,
     });
   };
   render() {
+    console.log("brodev :", this.state);
     return (
       <>
         <div className="container">
@@ -66,7 +102,7 @@ class ManageDoctor extends Component {
               <Select
                 value={this.state.selectedOption}
                 onChange={this.handleChange}
-                options={options}
+                options={this.state.listDoctors}
               />
             </div>
             <div className="moreInfo-desc">
@@ -78,7 +114,7 @@ class ManageDoctor extends Component {
                 onChange={(event) => {
                   this.handleOnchangeDesc(event);
                 }}
-                value={this.state.desctiption}
+                value={this.state.description}
               >
                 abcfaafa
               </textarea>
@@ -107,14 +143,15 @@ class ManageDoctor extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    listUsers: state.admin.users,
+    language: state.app.language,
+    allDoctors: state.admin.allDoctors,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
-    deleteOfUserRedux: (id) => dispatch(actions.deleteOfUser(id)),
+    fetchAllDoctors: (id) => dispatch(actions.fetchAllDoctors()),
+    saveDetailDoctor: (data) => dispatch(actions.saveDetailDoctor(data)),
   };
 };
 
