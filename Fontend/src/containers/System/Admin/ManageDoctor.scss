@@ -1,0 +1,30 @@
+.container {
+  font-size: 1.4rem;
+  .moreInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    label {
+      font-size: 1.4rem;
+    }
+    &-doctor {
+      width: 40%;
+    }
+    &-desc {
+      width: 55%;
+    }
+  }
+
+  .saveMarkDown {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: rgb(55, 43, 223);
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    color: #fff;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
