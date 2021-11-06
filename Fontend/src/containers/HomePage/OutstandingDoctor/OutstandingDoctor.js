@@ -8,7 +8,7 @@ import "./OutstandingDoctor.scss";
 import logoDoctor from "../../../assets/outstandingdoctor/logodoctor.png";
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from "../../../utils";
-import {withRouter} from "react-router";
+import { withRouter } from "react-router";
 class OutstandingDoctor extends Component {
   constructor(props) {
     super(props);
@@ -30,9 +30,11 @@ class OutstandingDoctor extends Component {
   }
 
   handleViewDetailDoctor = (doctor) => {
-    console.log("brodev view info:", doctor)
-    this.props.history.push(`/detail-doctor/${doctor.id}`)
-  }
+    console.log("brodev view info:", doctor);
+    if (this.props.history) {
+      this.props.history.push(`/detail-doctor/${doctor.id}`);
+    }
+  };
 
   render() {
     let arrDoctors = this.state.arrDoctors;
@@ -79,7 +81,11 @@ class OutstandingDoctor extends Component {
                     let nameVi = `${item.positionData.valueVi}, ${item.firstName}  ${item.lastName}`;
                     let nameEn = `${item.positionData.valueEn}, ${item.firstName}  ${item.lastName}`;
                     return (
-                      <div className="img-custom" key={index} onClick={() => this.handleViewDetailDoctor(item)}>
+                      <div
+                        className="img-custom"
+                        key={index}
+                        onClick={() => this.handleViewDetailDoctor(item)}
+                      >
                         <div className="box">
                           <div
                             className="image"
@@ -119,4 +125,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor)
+);

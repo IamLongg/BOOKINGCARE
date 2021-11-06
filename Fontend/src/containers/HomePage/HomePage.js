@@ -31,7 +31,7 @@ class HomePage extends Component {
     };
     return (
       <div>
-        <HomeHeader />
+        <HomeHeader isShowSearch={true} />
         <Specialty settings={settings} />
         <Advertisment />
         <BannerHome settingsBanner={settingsBanner} />

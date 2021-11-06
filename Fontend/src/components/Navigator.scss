@@ -31,16 +31,14 @@
       position: absolute;
       padding: 0;
       .menu {
-        width: 205px;
+        width: 100%;
         padding: 0 15px;
         height: 35px;
         line-height: 35px;
         text-transform: none;
 
         &.active {
-          a {
-            color: blue;
-          }
+          background-color: #ccc;
         }
 
         .menu-link {
@@ -84,7 +82,7 @@
           color: $colormain;
         }
         &:hover {
-          background-color: darken($bg-menu-color, 3);
+          background-color: #42ebcc;
           .sub-menu-list {
             display: block;
           }

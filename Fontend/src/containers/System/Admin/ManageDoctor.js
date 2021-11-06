@@ -3,7 +3,8 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
 import "./ManageDoctor.scss";
-import { LANGUAGES } from "../../../utils";
+import { LANGUAGES, CRUD_ACTIONS } from "../../../utils";
+import { getDetailInfoDoctor } from "../../../services/userService";
 import Select from "react-select";
 
 import MarkdownIt from "markdown-it";
@@ -22,6 +23,7 @@ class ManageDoctor extends Component {
       selectedOption: "",
       description: "",
       listDoctors: [],
+      backupData: false,
     };
   }
 
@@ -72,17 +74,41 @@ class ManageDoctor extends Component {
   };
 
   handleSaveContent = () => {
+    let { backupData } = this.state;
     this.props.saveDetailDoctor({
       contentHTML: this.state.contentHTML,
       contentMarkDown: this.state.contentMarkDown,
       description: this.state.description,
       doctorID: this.state.selectedOption.value,
+      action: backupData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
     });
   };
 
-  handleChange = (selectedOption) => {
+  handleChangeSelect = async (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    let res = await getDetailInfoDoctor(selectedOption.value);
+    if (
+      res &&
+      res.data.errCode === 0 &&
+      res.data.data &&
+      res.data.data.Markdown
+    ) {
+      let markdown = res.data.data.Markdown;
+      this.setState({
+        contentHTML: markdown.contentHTML,
+        contentMarkDown: markdown.contentMarkDown,
+        description: markdown.description,
+        backupData: true,
+      });
+    } else {
+      this.setState({
+        contentHTML: "",
+        contentMarkDown: "",
+        description: "",
+        backupData: false,
+      });
+    }
+    console.log("check res", res);
   };
 
   handleOnchangeDesc = (event) => {
@@ -92,6 +118,7 @@ class ManageDoctor extends Component {
   };
   render() {
     console.log("brodev :", this.state);
+    let { backupData } = this.state;
     return (
       <>
         <div className="container">
@@ -101,7 +128,7 @@ class ManageDoctor extends Component {
               <label>Chọn bác sĩ:</label>
               <Select
                 value={this.state.selectedOption}
-                onChange={this.handleChange}
+                onChange={this.handleChangeSelect}
                 options={this.state.listDoctors}
               />
             </div>
@@ -115,9 +142,7 @@ class ManageDoctor extends Component {
                   this.handleOnchangeDesc(event);
                 }}
                 value={this.state.description}
-              >
-                abcfaafa
-              </textarea>
+              ></textarea>
             </div>
           </div>
           <div className="markdown-editor">
@@ -125,15 +150,20 @@ class ManageDoctor extends Component {
               style={{ height: "500px" }}
               renderHTML={(text) => mdParser.render(text)}
               onChange={this.handleEditorChange}
+              value={this.state.contentMarkDown}
             />
           </div>
           <button
-            className="saveMarkDown"
+            className={backupData === true ? "saveMarkDown" : "createMarkDown"}
             onClick={() => {
               this.handleSaveContent();
             }}
           >
-            Lưu thông tin
+            {backupData === false ? (
+              <span>Tạo thông tin</span>
+            ) : (
+              <span>Lưu thông tin</span>
+            )}
           </button>
         </div>
       </>

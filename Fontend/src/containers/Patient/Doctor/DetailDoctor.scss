@@ -1,0 +1,70 @@
+.doctor-detail {
+  padding-top: 18rem;
+
+  .doctor-desc {
+    width: 60%;
+    background: #ffffff;
+    box-shadow: 0.1rem 0.2rem 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    h2 {
+      font-size: 1.8rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      margin: 1.5rem 0;
+    }
+    p {
+      font-size: 1.4rem;
+      text-transform: capitalize;
+    }
+    &-profile {
+      display: flex;
+      .image {
+        max-width: 30%;
+        width: 8rem;
+        height: 8rem;
+        background: url("");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+      }
+      .name {
+        max-width: 70%;
+        margin: auto 2rem;
+        div:first-child {
+          font-size: 2.2rem;
+          font-weight: 500;
+        }
+        i {
+          margin-right: 1rem;
+        }
+      }
+    }
+    .doctor-info {
+      margin-top: 5rem;
+      ul {
+        list-style: none;
+        position: relative;
+        li {
+          margin: 0.8rem 0;
+          padding-left: 2.4rem;
+          &::before {
+            content: " ";
+            background: #00ba99;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            left: 1rem;
+            width: 0.8rem;
+            height: 0.8rem;
+            margin-top: 0.7rem;
+          }
+          span {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}

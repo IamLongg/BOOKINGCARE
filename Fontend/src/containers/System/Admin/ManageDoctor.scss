@@ -27,4 +27,16 @@
       opacity: 0.9;
     }
   }
+  .createMarkDown {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: rgb(21, 190, 196);
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    color: #fff;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
 }

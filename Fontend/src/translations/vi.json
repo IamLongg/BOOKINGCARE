@@ -24,6 +24,9 @@
       "manage-specialty": "Quản lý chuyên khoa",
       "handbook": "Cẩm Nang",
       "manage-handbook": "Quản lý cẩm nang"
+    },
+    "doctor": {
+      "manage-schedule": "Quản lý lịch khám bệnh"
     }
   },
   "manage-user": {
