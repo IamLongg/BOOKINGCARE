@@ -194,8 +194,6 @@ let bulkCreateSchedule = (data) => {
         if (toCreate && toCreate.length > 0) {
           await db.Schedule.bulkCreate(toCreate);
         }
-        console.log("check different", toCreate);
-
         resolve({
           errCode: 0,
           errMessage: "OK",
