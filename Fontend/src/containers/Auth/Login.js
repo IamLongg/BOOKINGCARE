@@ -69,6 +69,12 @@ class Login extends Component {
     }
   };
 
+  handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.keyCode === 13) {
+      this.handleLogin();
+    }
+  };
+
   render() {
     return (
       <div className="col-md-6 col-lg-4 offset-lg-4 offset-md-3 mt-5 ">
@@ -99,6 +105,7 @@ class Login extends Component {
                 onChange={(event) => {
                   this.handleChangePass(event);
                 }}
+                onKeyDown={(event) => this.handleKeyDown(event)}
               />
               <span
                 style={{

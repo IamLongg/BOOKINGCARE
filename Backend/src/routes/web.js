@@ -18,8 +18,8 @@ let initWebRoutes = (app) => {
   router.post("/api/create-new-user", userController.handleCreateNewUser);
   router.put("/api/edit-user", userController.handleEditUser);
   router.delete("/api/delete-user", userController.handleDeleteUser);
-
   router.get("/api/allcode", userController.getAllCode);
+
   router.get("/api/top-doctor-home", doctorController.getTopDoctorHome);
   router.get("/api/get-all-doctors", doctorController.getAllDoctors);
   router.post("/api/post-info-doctors", doctorController.postInfoDoctors);
@@ -27,6 +27,8 @@ let initWebRoutes = (app) => {
     "/api/get-detail-doctor-by-id",
     doctorController.getDetailDoctorById
   );
+  router.post("/api/bulk-create-schedule", doctorController.bulkCreateSchedule);
+
   // router.get("/duclong", (req, res) => {
   //   return res.send("hello long");
   // });

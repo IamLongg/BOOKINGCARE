@@ -122,7 +122,7 @@ class ManageDoctor extends Component {
     return (
       <>
         <div className="container">
-          <div className="title">Tao them thong tin bac si</div>
+          <div className="admin-title">Tao them thong tin bac si</div>
           <div className="moreInfo">
             <div className="moreInfo-doctor">
               <label>Chọn bác sĩ:</label>
@@ -180,7 +180,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllDoctors: (id) => dispatch(actions.fetchAllDoctors()),
+    fetchAllDoctors: () => dispatch(actions.fetchAllDoctors()),
     saveDetailDoctor: (data) => dispatch(actions.saveDetailDoctor(data)),
   };
 };

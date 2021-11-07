@@ -50,5 +50,12 @@
     "more-info": "Xem thêm",
     "desc": "Đặt khám trực tiếp tới đội ngũ bác sĩ của ISOFHCARE có trình độ chuyên môn cao, nhiều năm kinh nghiệm, giàu y đức, giúp bạn hoàn toàn chủ động lựa chọn thời gian khám",
     "doctor": "Bác sĩ ơi"
+  },
+
+  "manage-schedule": {
+    "title": "Quản lý lịch khám bệnh của bác sĩ",
+    "choose-doctor": "Chọn bác sĩ",
+    "choose-date": "Chọn ngày",
+    "save-info": "Lưu thông tin"
   }
 }

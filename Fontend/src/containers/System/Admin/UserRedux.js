@@ -227,11 +227,10 @@ class UserRedux extends Component {
 
     return (
       <div className="user-redux-container">
-        <div className="title">User Redux</div>
         <div className="user-redux-body">
           <div className="container">
             <div className="row">
-              <div className="col-12 my-3">
+              <div className="col-12 my-3 admin-title">
                 <FormattedMessage id="manage-user.add" />
               </div>
               <div className="col-12 my-3">

@@ -49,5 +49,12 @@
     "more-info": "More Info",
     "desc": "Set up directly to ISOFHCARE's team of highly qualified doctors, many years of experience, rich in medical ethics, helping you to choose from time to time.",
     "doctor": "Doctor"
+  },
+
+  "manage-schedule": {
+    "title": "Manage doctor's examination",
+    "choose-doctor": "Choose Doctor",
+    "choose-date": "Choose Date",
+    "save-info": "Save Info"
   }
 }

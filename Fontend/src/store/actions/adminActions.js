@@ -94,11 +94,12 @@ export const createNewUser = (data) => {
       let res = await createNewUserService(data);
       console.log("check create user redux:", res);
       if (res && res.data.errCode === 0) {
-        toast.success("Create new user success !");
+        toast.success("Đã tạo thành công!");
         dispatch(saveUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
         dispatch(saveUserFailed());
+        toast.error("Tạo thất bại!");
       }
     } catch (e) {
       dispatch(saveUserFailed());
@@ -147,11 +148,11 @@ export const deleteOfUser = (id) => {
     try {
       let res = await deleteUser(id);
       if (res && res.data.errCode === 0) {
-        toast.success("Delete the user success !");
+        toast.success("Xóa thành công!");
         dispatch(deleteUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
-        toast.error("Delete the user error !");
+        toast.error("Xóa thất bại!");
         dispatch(deleteUserFailed());
       }
     } catch (e) {
@@ -174,11 +175,11 @@ export const editUser = (data) => {
     try {
       let res = await editUserApi(data);
       if (res && res.data.errCode === 0) {
-        toast.success("Update the user success !");
+        toast.success("Cập nhật thành công!");
         dispatch(editUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
-        toast.error("Update the user error !");
+        toast.error("Cập nhật thất bại!");
         dispatch(editUserFailed());
       }
     } catch (e) {
@@ -248,12 +249,12 @@ export const saveDetailDoctor = (data) => {
       let res = await saveDetailInfoDoctor(data);
       console.log("check response", res);
       if (res && res.data.errCode === 0) {
-        toast.success("Save info detail doctor success !");
+        toast.success("Lưu thông tin chi tiết bác sĩ thành công!");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
         });
       } else {
-        toast.error("Save info detail doctor failed !");
+        toast.error("Lưu thông tin chi tiết bác sĩ thất bại!");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_FAILDED,
         });
@@ -262,6 +263,29 @@ export const saveDetailDoctor = (data) => {
       toast.error("Save info detail doctor failed !");
       dispatch({
         type: actionTypes.SAVE_DETAIL_DOCTOR_FAILDED,
+      });
+    }
+  };
+};
+
+export const fetchAllHours = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getALLCodeSerVice("TIME");
+      console.log("check response", res);
+      if (res && res.data.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_HOURS_SUCCESS,
+          dataHours: res.data.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_HOURS_FAILDED,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: actionTypes.FETCH_ALLCODE_HOURS_FAILDED,
       });
     }
   };
