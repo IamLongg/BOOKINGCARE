@@ -4,12 +4,14 @@ import HomeHeader from "../../HomePage/Header/HomeHeader";
 import "./DetailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
+import DoctorSchedule from "./DoctorSchedule";
 
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       detailDoctor: {},
+      currentDoctorID: -1,
     };
   }
 
@@ -20,6 +22,9 @@ class DetailDoctor extends Component {
       this.props.match.params.id
     ) {
       let id = this.props.match.params.id;
+      this.setState({
+        currentDoctorID: id,
+      });
       let res = await getDetailInfoDoctor(id);
       if (res && res.data.errCode === 0) {
         this.setState({
@@ -45,7 +50,7 @@ class DetailDoctor extends Component {
       <>
         <HomeHeader isShowSearch={false} />
         <div className="doctor-detail">
-          <div className="container">
+          <div className="container flex">
             <div className="doctor-desc">
               <div className="doctor-desc-profile">
                 <div
@@ -113,7 +118,7 @@ class DetailDoctor extends Component {
                   )}
               </div>
             </div>
-            <div className="doctor-calender"></div>
+            <DoctorSchedule doctorIdFromParent={this.state.currentDoctorID} />
           </div>
         </div>
       </>

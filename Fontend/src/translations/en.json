@@ -55,6 +55,28 @@
     "title": "Manage doctor's examination",
     "choose-doctor": "Choose Doctor",
     "choose-date": "Choose Date",
-    "save-info": "Save Info"
+    "save-info": "Save Info",
+    "choosePrice": "Choose Price",
+    "choosePayment": "Choose Payment",
+    "chooseProvince": "Choose Province",
+    "chooseNameSchedule": "Choose Name Schedule",
+    "chooseAddressSchedule": "Choose Address Schedule",
+    "note": "Note"
+  },
+
+  "page-detail-doctor": {
+    "schedule": "examination schedule",
+    "scheduleDate": "Choose a Medical Checkup Date",
+    "scheduleTime": "Medical examination time"
+  },
+
+  "admin": {
+    "manage-doctor": {
+      "title": "Create more doctor information",
+      "chooseInfo": "Choose Doctor",
+      "produceInfo": "Introduce to information",
+      "createInfo": "Create Info",
+      "saveInfo": "Save Info"
+    }
   }
 }

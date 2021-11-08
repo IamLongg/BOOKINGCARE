@@ -59,9 +59,13 @@
             box-shadow: $box-shadowImg;
           }
           .title-name {
-            font-size: 1.6rem;
-            color: #fff;
-            padding: 3rem 0;
+            height: 7rem;
+            max-height: 100%;
+            .doctorName {
+              font-size: 1.6rem;
+              color: #fff;
+              padding: 2rem 0;
+            }
           }
           .subtitle {
             font-size: 1.2rem;

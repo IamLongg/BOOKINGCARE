@@ -56,6 +56,28 @@
     "title": "Quản lý lịch khám bệnh của bác sĩ",
     "choose-doctor": "Chọn bác sĩ",
     "choose-date": "Chọn ngày",
-    "save-info": "Lưu thông tin"
+    "save-info": "Lưu thông tin",
+    "choosePrice": "Chọn Giá",
+    "choosePayment": "Chọn Phương Thức Thanh Toán",
+    "chooseProvince": "Chọn Tỉnh Thành",
+    "chooseNameSchedule": "Chọn Tên Phòng Khám",
+    "chooseAddressSchedule": "Chọn Địa Chỉ Phòng Khám",
+    "note": "Lưu Ý"
+  },
+
+  "page-detail-doctor": {
+    "schedule": "Lịch Khám",
+    "scheduleDate": "Chọn Ngày Khám",
+    "scheduleTime": "Thời gian khám"
+  },
+
+  "admin": {
+    "manage-doctor": {
+      "title": "Tạo thêm thông tin bác sĩ",
+      "chooseInfo": "Chọn bác sĩ",
+      "produceInfo": "Thông tin giới thiệu",
+      "createInfo": "Tạo thông tin",
+      "saveInfo": "Lưu thông tin"
+    }
   }
 }

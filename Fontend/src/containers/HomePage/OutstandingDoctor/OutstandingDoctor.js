@@ -78,8 +78,9 @@ class OutstandingDoctor extends Component {
                         "binary"
                       );
                     }
-                    let nameVi = `${item.positionData.valueVi}, ${item.firstName}  ${item.lastName}`;
-                    let nameEn = `${item.positionData.valueEn}, ${item.firstName}  ${item.lastName}`;
+                    let nameVi = `${item.positionData.valueVi},  ${item.firstName}  ${item.lastName}`;
+                    let nameEn = `${item.positionData.valueEn},  ${item.firstName}  ${item.lastName}`;
+
                     return (
                       <div
                         className="img-custom"
@@ -91,9 +92,11 @@ class OutstandingDoctor extends Component {
                             className="image"
                             style={{ backgroundImage: `url(${imagabase64})` }}
                           />
-                          <h3 className="title-name">
-                            {language === LANGUAGES.VI ? nameVi : nameEn}
-                          </h3>
+                          <h5 className="title-name">
+                            <p className="doctorName">
+                              {language === LANGUAGES.VI ? nameVi : nameEn}
+                            </p>
+                          </h5>
                           <p className="subtitle">
                             <FormattedMessage id="outstandingdoctor-home.doctor" />
                           </p>

@@ -133,14 +133,21 @@ class ManageSchedule extends Component {
       doctorID: selectedDoctor.value,
       formatedDate: formatedDate,
     });
+    if (res && res.data.errCode === 0) {
+      toast.success("Thêm thông tin lịch khám thành công !");
+    } else {
+      toast.error("Thêm lịch khám thất bại !");
+      console.log("brodev check res ERROR: saveBulkScheduleDoctor", res);
+    }
+
     console.log("check: result", result);
-    console.log("brodev check res: saveBulkScheduleDoctor", res);
   };
 
   render() {
     // console.log("check props", this.props);
     let { rangeTime } = this.state;
     let { language } = this.props;
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     console.log("brodev checking state", rangeTime);
     return (
       <React.Fragment>
@@ -169,7 +176,7 @@ class ManageSchedule extends Component {
                   className="form-control"
                   onChange={this.handleOnChangeDatePicker}
                   value={this.state.currentDate}
-                  minDate={new Date()}
+                  minDate={yesterday}
                 />
               </div>
               <div className="col-12 date-time">

@@ -177,17 +177,17 @@ let bulkCreateSchedule = (data) => {
           raw: true,
         });
 
-        // lay data da ton tai
-        if (existing && existing.length > 0) {
-          existing = existing.map((item) => {
-            item.date = new Date(item.date).getTime();
-            return item;
-          });
-        }
+        // // lay data da ton tai
+        // if (existing && existing.length > 0) {
+        //   existing = existing.map((item) => {
+        //     item.date = new Date(item.date).getTime();
+        //     return item;
+        //   });
+        // }
 
         // so sanh date vs timeType
         let toCreate = _.differenceWith(schedule, existing, (a, b) => {
-          return a.timeType === b.timeType && a.date === b.date;
+          return a.timeType === b.timeType && +a.date === +b.date;
         });
 
         // create data
@@ -205,10 +205,46 @@ let bulkCreateSchedule = (data) => {
   });
 };
 
+let getScheduleDoctorByDate = (doctorID, date) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!doctorID || !date) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing required parameter",
+        });
+      } else {
+        let dataSchedule = await db.Schedule.findAll({
+          where: { doctorID: doctorID, date: date },
+          include: [
+            {
+              model: db.Allcode,
+              as: "timeTypeData",
+              attributes: ["valueEn", "valueVi"],
+            },
+          ],
+          raw: false,
+          nest: true,
+        });
+
+        if (!dataSchedule) dataSchedule = [];
+
+        resolve({
+          errCode: 0,
+          data: dataSchedule,
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   getTopDoctorHome: getTopDoctorHome,
   getAllDoctors: getAllDoctors,
   saveDetailInfoDoctors: saveDetailInfoDoctors,
   getDetailDoctorById: getDetailDoctorById,
   bulkCreateSchedule: bulkCreateSchedule,
+  getScheduleDoctorByDate: getScheduleDoctorByDate,
 };

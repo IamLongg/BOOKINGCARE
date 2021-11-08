@@ -290,3 +290,44 @@ export const fetchAllHours = () => {
     }
   };
 };
+
+export const getRequiredDoctorInfo = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_START });
+      let resPrice = await getALLCodeSerVice("PRICE");
+      let resPayment = await getALLCodeSerVice("PAYMENT");
+      let resProvince = await getALLCodeSerVice("PROVINCE");
+
+      if (
+        resPrice &&
+        resPrice.data.errCode === 0 &&
+        resPayment &&
+        resPayment.data.errCode === 0 &&
+        resProvince &&
+        resProvince.data.errCode === 0
+      ) {
+        let data = {
+          resPrice: resPrice.data.data,
+          resPayment: resPayment.data.data,
+          resProvince: resProvince.data.data,
+        };
+        dispatch(fetchRequiredDoctorInfoSuccess(data));
+      } else {
+        dispatch(fetchRequiredDoctorInfoFailed());
+      }
+    } catch (e) {
+      dispatch(fetchRequiredDoctorInfoFailed());
+      console.log(e);
+    }
+  };
+};
+
+export const fetchRequiredDoctorInfoSuccess = (allRequiredData) => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_SUCCESS,
+  data: allRequiredData,
+});
+
+export const fetchRequiredDoctorInfoFailed = () => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED,
+});
