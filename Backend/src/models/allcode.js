@@ -26,12 +26,12 @@ module.exports = (sequelize, DataTypes) => {
         as: "priceTypeData",
       });
       Allcode.hasMany(models.Doctor_Info, {
-        foreignKey: "provinceID",
-        as: "provinceTypeData",
+        foreignKey: "paymentID",
+        as: "paymentTypeData",
       });
       Allcode.hasMany(models.Doctor_Info, {
-        foreignKey: "paymentID",
-        as: "pamentTypeData",
+        foreignKey: "provinceID",
+        as: "provinceTypeData",
       });
     }
   }

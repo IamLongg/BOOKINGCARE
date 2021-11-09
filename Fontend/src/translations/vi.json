@@ -68,7 +68,13 @@
   "page-detail-doctor": {
     "schedule": "Lịch Khám",
     "scheduleDate": "Chọn Ngày Khám",
-    "scheduleTime": "Thời gian khám"
+    "scheduleTime": "Thời gian khám",
+    "scheduleAddress": "Địa chỉ khám",
+    "nameClinic": "Tên phòng khám",
+    "payment": "Hình thức thanh toán",
+    "subPayment": "Có thể thanh toán thông qua",
+    "scheduleNote": "ghi chú",
+    "schedulePrice": "giá khám"
   },
 
   "admin": {

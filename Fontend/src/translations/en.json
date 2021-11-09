@@ -67,7 +67,13 @@
   "page-detail-doctor": {
     "schedule": "examination schedule",
     "scheduleDate": "Choose a Medical Checkup Date",
-    "scheduleTime": "Medical examination time"
+    "scheduleTime": "Medical examination time",
+    "scheduleAddress": "examination address",
+    "nameClinic": "Clinic name",
+    "payment": "Payments",
+    "subPayment": "Payment is possible through",
+    "scheduleNote": "Note",
+    "schedulePrice": "examination price"
   },
 
   "admin": {

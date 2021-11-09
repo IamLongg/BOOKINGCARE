@@ -3,8 +3,12 @@ import { connect } from "react-redux";
 import "./DoctorSchedule.scss";
 import moment from "moment";
 import localization from "moment/locale/vi";
-import { getScheduleDoctorByDate } from "../../../services/userService";
+import {
+  getScheduleDoctorByDate,
+  getInfoDoctorScheduleById,
+} from "../../../services/userService";
 import { FormattedMessage } from "react-intl";
+import NumberFormat from "react-number-format";
 
 // import Select from "react-select";
 
@@ -16,6 +20,7 @@ class DoctorSchedule extends Component {
     this.state = {
       allDays: [],
       allAvalableTime: [],
+      infoSchedule: {},
     };
   }
 
@@ -84,6 +89,16 @@ class DoctorSchedule extends Component {
       this.setState({
         allAvalableTime: res.data.data ? res.data.data : [],
       });
+
+      let resGetData = await getInfoDoctorScheduleById(
+        this.props.doctorIdFromParent
+      );
+      if (resGetData && resGetData.data.errCode === 0) {
+        this.setState({
+          infoSchedule: resGetData.data.data,
+        });
+      }
+      // console.log("=== brodev check get data:", resGetData);
     }
   }
 
@@ -103,8 +118,9 @@ class DoctorSchedule extends Component {
 
   render() {
     // let options = this.state.allDays;
-    let { allDays, allAvalableTime } = this.state;
+    let { allDays, allAvalableTime, infoSchedule } = this.state;
     let { language } = this.props;
+    // console.log("===check state :", this.state);
     return (
       <>
         <div className="doctor-calender">
@@ -160,19 +176,79 @@ class DoctorSchedule extends Component {
           <div className="doctor-infoSchedule">
             <div className="doctor-infoSchedule-addressClinic">
               <h5>
-                <i class="fas fa-map-marker-alt"></i>địa chỉ khám
+                <i className="fas fa-map-marker-alt"></i>
+                <FormattedMessage id="page-detail-doctor.scheduleAddress" />
               </h5>
             </div>
-            <p>40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Thành phố Hà Nội</p>
+            <p>
+              {infoSchedule && infoSchedule.addressClinic
+                ? infoSchedule.addressClinic
+                : ""}
+            </p>
             <div className="doctor-infoSchedule-nameClinic">
               <h5>
-                <i class="fas fa-map-marker-alt"></i>tên phòng khám
+                <i className="fas fa-map-marker-alt"></i>
+                <FormattedMessage id="page-detail-doctor.nameClinic" />
               </h5>
             </div>
-            <p>Bệnh viện Hữu Nghị Việt Đức</p>
+            <p>
+              {infoSchedule && infoSchedule.nameClinic
+                ? infoSchedule.nameClinic
+                : ""}
+            </p>
+            <div className="doctor-infoSchedule-addressClinic">
+              <h5>
+                <FormattedMessage id="page-detail-doctor.payment" />
+              </h5>
+              <p>
+                <FormattedMessage id="page-detail-doctor.subPayment" />{" "}
+                {infoSchedule &&
+                infoSchedule.paymentTypeData &&
+                language === LANGUAGES.VI
+                  ? infoSchedule.paymentTypeData.valueVi
+                  : ""}
+                {infoSchedule &&
+                infoSchedule.paymentTypeData &&
+                language === LANGUAGES.EN
+                  ? infoSchedule.paymentTypeData.valueEn
+                  : ""}
+              </p>
+            </div>
+            <div className="doctor-infoSchedule-note">
+              <h5>
+                <FormattedMessage id="page-detail-doctor.scheduleNote" />
+              </h5>
+              <span className="sub-note">
+                {infoSchedule && infoSchedule.note ? infoSchedule.note : ""}
+              </span>
+            </div>
             <div className="doctor-infoSchedule-priceSchedule">
-              <span>giá khám</span>
-              <span>500,000 VND</span>
+              <span>
+                <FormattedMessage id="page-detail-doctor.schedulePrice" />
+              </span>
+              <span>
+                {infoSchedule &&
+                  infoSchedule.priceTypeData &&
+                  language === LANGUAGES.VI && (
+                    <NumberFormat
+                      value={infoSchedule.priceTypeData.valueVi}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      suffix={" VND"}
+                    />
+                  )}
+
+                {infoSchedule &&
+                  infoSchedule.priceTypeData &&
+                  language === LANGUAGES.EN && (
+                    <NumberFormat
+                      value={infoSchedule.priceTypeData.valueEn}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      suffix={"$"}
+                    />
+                  )}
+              </span>
             </div>
           </div>
         </div>

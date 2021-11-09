@@ -30,7 +30,6 @@
     font-weight: 500;
     text-transform: capitalize;
   }
-
   &-title {
     background: #3161ad;
     border-radius: 1.6rem 1.6rem 0 0;
@@ -79,6 +78,14 @@
       background-color: #178877;
       margin-top: 2rem;
       border-radius: 0 0 0.5rem 0.5rem;
+    }
+    &-note {
+      display: flex;
+      .sub-note {
+        font-size: 1.4rem;
+        color: #111;
+        margin-top: 2.5rem;
+      }
     }
   }
 }
