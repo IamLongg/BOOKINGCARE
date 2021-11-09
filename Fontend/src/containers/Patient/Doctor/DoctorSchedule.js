@@ -156,6 +156,25 @@ class DoctorSchedule extends Component {
                 );
               })}
           </div>
+          <hr></hr>
+          <div className="doctor-infoSchedule">
+            <div className="doctor-infoSchedule-addressClinic">
+              <h5>
+                <i class="fas fa-map-marker-alt"></i>địa chỉ khám
+              </h5>
+            </div>
+            <p>40 Tràng Thi, Hàng Bông, Hoàn Kiếm, Thành phố Hà Nội</p>
+            <div className="doctor-infoSchedule-nameClinic">
+              <h5>
+                <i class="fas fa-map-marker-alt"></i>tên phòng khám
+              </h5>
+            </div>
+            <p>Bệnh viện Hữu Nghị Việt Đức</p>
+            <div className="doctor-infoSchedule-priceSchedule">
+              <span>giá khám</span>
+              <span>500,000 VND</span>
+            </div>
+          </div>
         </div>
       </>
     );

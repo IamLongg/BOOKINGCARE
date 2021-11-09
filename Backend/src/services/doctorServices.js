@@ -67,13 +67,21 @@ let saveDetailInfoDoctors = (data) => {
         !data.doctorID ||
         !data.contentHTML ||
         !data.contentMarkDown ||
-        !data.action
+        !data.action ||
+        !data.selectedPrice ||
+        !data.selectedPayment ||
+        !data.selectedProvince ||
+        !data.nameClinic ||
+        !data.addressClinic ||
+        !data.note
       ) {
         resolve({
           errCode: 1,
           errMessage: "Missing parameters",
         });
       } else {
+        // upsert to Markdown
+
         if (data.action === "CREATE") {
           await db.Markdown.create({
             contentHTML: data.contentHTML,
@@ -93,6 +101,36 @@ let saveDetailInfoDoctors = (data) => {
             doctorMarkdown.description = data.description;
             await doctorMarkdown.save();
           }
+        }
+
+        // upsert to Doctor_info
+
+        let doctorInfo = await db.Doctor_Info.findOne({
+          where: { doctorID: data.doctorID },
+          raw: false,
+        });
+
+        if (doctorInfo) {
+          //update
+          doctorInfo.doctorID = data.doctorID;
+          doctorInfo.priceID = data.selectedPrice;
+          doctorInfo.paymentID = data.selectedPayment;
+          doctorInfo.provinceID = data.selectedProvince;
+          doctorInfo.nameClinic = data.nameClinic;
+          doctorInfo.addressClinic = data.addressClinic;
+          doctorInfo.note = data.note;
+          await doctorInfo.save();
+        } else {
+          //create
+          await db.Doctor_Info.create({
+            doctorID: data.doctorID,
+            priceID: data.selectedPrice,
+            paymentID: data.selectedPayment,
+            provinceID: data.selectedProvince,
+            nameClinic: data.nameClinic,
+            addressClinic: data.addressClinic,
+            note: data.note,
+          });
         }
 
         resolve({
@@ -129,6 +167,29 @@ let getDetailDoctorById = (idInput) => {
               model: db.Allcode,
               as: "positionData",
               attributes: ["valueEn", "valueVi"],
+            },
+            {
+              model: db.Doctor_Info,
+              attributes: {
+                exclude: ["id", "doctorID"],
+              },
+              include: [
+                {
+                  model: db.Allcode,
+                  as: "priceTypeData",
+                  attributes: ["valueEn", "valueVi"],
+                },
+                {
+                  model: db.Allcode,
+                  as: "provinceTypeData",
+                  attributes: ["valueEn", "valueVi"],
+                },
+                {
+                  model: db.Allcode,
+                  as: "pamentTypeData",
+                  attributes: ["valueEn", "valueVi"],
+                },
+              ],
             },
           ],
           raw: false,
