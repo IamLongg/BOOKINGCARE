@@ -9,6 +9,7 @@ import {
 } from "../../../services/userService";
 import { FormattedMessage } from "react-intl";
 import NumberFormat from "react-number-format";
+import BookModal from "./BookModal";
 
 // import Select from "react-select";
 
@@ -21,6 +22,8 @@ class DoctorSchedule extends Component {
       allDays: [],
       allAvalableTime: [],
       infoSchedule: {},
+      isOpenBookModal: false,
+      dataTimeScheduleModal: {},
     };
   }
 
@@ -116,9 +119,28 @@ class DoctorSchedule extends Component {
     }
   };
 
+  handleInfoBookModal = (time) => {
+    this.setState({
+      isOpenBookModal: true,
+      dataTimeScheduleModal: time,
+    });
+  };
+
+  handleCloseBookModal = () => {
+    this.setState({
+      isOpenBookModal: false,
+    });
+  };
+
   render() {
     // let options = this.state.allDays;
-    let { allDays, allAvalableTime, infoSchedule } = this.state;
+    let {
+      allDays,
+      allAvalableTime,
+      infoSchedule,
+      isOpenBookModal,
+      dataTimeScheduleModal,
+    } = this.state;
     let { language } = this.props;
     // console.log("===check state :", this.state);
     return (
@@ -166,7 +188,11 @@ class DoctorSchedule extends Component {
                     : item.timeTypeData.valueEn;
 
                 return (
-                  <button className="btn-celendartime" key={index}>
+                  <button
+                    className="btn-celendartime"
+                    key={index}
+                    onClick={() => this.handleInfoBookModal(item)}
+                  >
                     {displayTime}
                   </button>
                 );
@@ -252,6 +278,11 @@ class DoctorSchedule extends Component {
             </div>
           </div>
         </div>
+        <BookModal
+          isOpenBookModal={isOpenBookModal}
+          handleCloseBookModal={this.handleCloseBookModal}
+          dataTimeScheduleModal={dataTimeScheduleModal}
+        />
       </>
     );
   }

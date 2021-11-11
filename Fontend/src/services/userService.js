@@ -58,6 +58,10 @@ const getInfoDoctorScheduleById = (doctorID) => {
   );
 };
 
+const getProfileDoctor = (doctorID) => {
+  return axios.get(`${baseURL}/api/get-profile-doctor?doctorID=${doctorID}`);
+};
+
 export {
   handleLoginApi,
   getAllUsers,
@@ -72,4 +76,5 @@ export {
   saveBulkScheduleDoctor,
   getScheduleDoctorByDate,
   getInfoDoctorScheduleById,
+  getProfileDoctor,
 };

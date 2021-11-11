@@ -81,32 +81,6 @@ class DetailDoctor extends Component {
               </div>
               <hr></hr>
               <div className="doctor-info">
-                {/* <p>chuyên khoa phụ sản</p>
-                <p>tầng 6 tòa nhà Ford, Hà Nội</p>
-                <p>Thành phố Hà Nội </p>
-                <h2 className="doctor-title">Quá trình công tác</h2>
-                <ul className="timeline">
-                  <li>
-                    <span className="history">
-                      (11/09/2008 - 11/09/2013) Giảng viên, Bộ môn phụ sản
-                      Trường Đại học y dược Thái Bình
-                    </span>
-                  </li>
-                  <li>
-                    <span className="history">
-                      (11/09/2014 - 11/09/2021) Bác sĩ điều trị, Khoa sản bệnh
-                      viện Việt Pháp Hà Nội{" "}
-                    </span>
-                  </li>
-                </ul>
-                <h2 className="doctor-title">Khám và điều trị</h2>
-                <p>khám siêu âm quản lý thai ngán</p>
-                <p>khám siêu âm quản lý thai ngán</p>
-                <p>khám siêu âm quản lý thai ngán</p>
-                <p>khám siêu âm quản lý thai ngán</p>
-                <p>khám siêu âm quản lý thai ngán</p>
-                <p>khám siêu âm quản lý thai ngán</p> */}
-
                 {detailDoctor &&
                   detailDoctor.Markdown &&
                   detailDoctor.Markdown.contentHTML && (
@@ -118,6 +92,7 @@ class DetailDoctor extends Component {
                   )}
               </div>
             </div>
+
             <DoctorSchedule doctorIdFromParent={this.state.currentDoctorID} />
           </div>
         </div>
