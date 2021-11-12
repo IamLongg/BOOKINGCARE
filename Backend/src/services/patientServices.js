@@ -1,6 +1,14 @@
 import db from "../models/index";
 require("dotenv").config();
 import sendMailServices from "./sendMailServices";
+import { v4 as uuidv4 } from "uuid";
+import { reject } from "lodash";
+
+let buildURLToken = (doctorID, token) => {
+  let result = `${process.env.URL_REACT}/verify-booking-ISOFHCARE?token=${token}&doctorID=${doctorID}`;
+  return result;
+};
+
 let postBookAppointMent = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -10,19 +18,22 @@ let postBookAppointMent = (data) => {
         !data.timeType ||
         !data.date ||
         !data.numberPhone ||
-        !data.address
+        !data.address ||
+        !data.fullName
       ) {
         resolve({
           errCode: 1,
           errMessage: "Missing parameters",
         });
       } else {
+        let token = uuidv4();
         await sendMailServices.postSendMail({
           reciverEmail: data.email,
-          patientName: "Long Nguyen",
-          time: "8:00 - 9:00 Chủ nhật 1/1/2021",
-          doctorName: "Dương Thị Phương",
-          redirecLink: "https://www.youtube.com/",
+          patientName: data.fullName,
+          time: data.timeString,
+          doctorName: data.doctorName,
+          language: data.language,
+          redirecLink: buildURLToken(data.doctorID, token),
         });
 
         //upsert patient
@@ -45,6 +56,7 @@ let postBookAppointMent = (data) => {
               address: data.address,
               numberPhone: data.numberPhone,
               timeType: data.timeType,
+              token: token,
             },
           });
         }
@@ -59,6 +71,42 @@ let postBookAppointMent = (data) => {
   });
 };
 
+let postVerifyBookAppointMent = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!data.token || !data.doctorID) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing parameters",
+        });
+      } else {
+        let appointment = await db.Booking.findOne({
+          where: { doctorID: data.doctorID, token: data.token, statusID: "S1" },
+          raw: false,
+        });
+
+        if (appointment) {
+          appointment.statusID = "S2";
+          await appointment.save();
+          resolve({
+            errCode: 0,
+            errMessage: "Activated successfully !",
+          });
+        } else {
+          resolve({
+            errCode: 3,
+            errMessage:
+              "Medical appointment has been activated or does not exist !",
+          });
+        }
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   postBookAppointMent: postBookAppointMent,
+  postVerifyBookAppointMent: postVerifyBookAppointMent,
 };

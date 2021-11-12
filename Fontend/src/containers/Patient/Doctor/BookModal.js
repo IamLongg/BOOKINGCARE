@@ -11,6 +11,7 @@ import { postBookAppointMent } from "../../../services/userService";
 import { toast } from "react-toastify";
 import { FormattedMessage } from "react-intl";
 import _ from "lodash";
+import moment from "moment";
 
 class BookModal extends Component {
   constructor(props) {
@@ -96,6 +97,8 @@ class BookModal extends Component {
 
   handleConfirmBookModal = async () => {
     let date = new Date(this.state.birthday).getTime();
+    let timeString = this.buildTimeBooking(this.props.dataTimeScheduleModal);
+    let doctorName = this.buildDoctorName(this.props.dataTimeScheduleModal);
     let res = await postBookAppointMent({
       fullName: this.state.fullName,
       numberPhone: this.state.numberPhone,
@@ -106,6 +109,9 @@ class BookModal extends Component {
       selectedGender: this.state.selectedGender.value,
       doctorID: this.state.doctorID,
       timeType: this.state.timeType,
+      language: this.props.language,
+      timeString: timeString,
+      doctorName: doctorName,
     });
 
     if (res && res.data.errCode === 0) {
@@ -116,6 +122,40 @@ class BookModal extends Component {
     }
   };
 
+  buildTimeBooking = (dataTimeScheduleModal) => {
+    let { language } = this.props;
+    if (dataTimeScheduleModal && !_.isEmpty(dataTimeScheduleModal)) {
+      let date =
+        language === LANGUAGES.VI
+          ? moment
+              .unix(+dataTimeScheduleModal.date / 1000)
+              .format("dddd - DD/MM/YYYY")
+          : moment
+              .unix(+dataTimeScheduleModal.date / 1000)
+              .locale("en")
+              .format("ddd - MM/DD/YYYY");
+      let time =
+        language === LANGUAGES.VI
+          ? dataTimeScheduleModal.timeTypeData.valueVi
+          : dataTimeScheduleModal.timeTypeData.valueEn;
+      return `${time} - ${date}`;
+    }
+    return "";
+  };
+
+  buildDoctorName = (dataTimeScheduleModal) => {
+    let { language } = this.props;
+    if (dataTimeScheduleModal && !_.isEmpty(dataTimeScheduleModal)) {
+      let name =
+        language === LANGUAGES.VI
+          ? `${dataTimeScheduleModal.doctorData.lastName} ${dataTimeScheduleModal.doctorData.firstName}`
+          : `${dataTimeScheduleModal.doctorData.firstName} ${dataTimeScheduleModal.doctorData.lastName}`;
+
+      return name;
+    }
+    return "";
+  };
+
   render() {
     let { isOpenBookModal, handleCloseBookModal, dataTimeScheduleModal } =
       this.props;
@@ -123,7 +163,7 @@ class BookModal extends Component {
     if (dataTimeScheduleModal && !_.isEmpty(dataTimeScheduleModal)) {
       doctorID = dataTimeScheduleModal.doctorID;
     }
-    // console.log("data state in from modal:", this.state);
+    console.log("datatimeSchedule state in from modal:", dataTimeScheduleModal);
     return (
       <>
         <Modal
