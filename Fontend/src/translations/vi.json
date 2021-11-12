@@ -85,5 +85,19 @@
       "createInfo": "Tạo thông tin",
       "saveInfo": "Lưu thông tin"
     }
+  },
+
+  "book-modal": {
+    "infoBookModal": "thông tin đặt lịch khám bệnh",
+    "priceBookModal": "Giá khám",
+    "dateBookModal": "Ngày đặt",
+    "timeBookModal": "Thời gian đặt",
+    "fullName": "Họ tên",
+    "numberPhone": "Số điện thoại",
+    "email": "Địa chỉ email",
+    "address": "Địa chỉ liên hệ",
+    "birthday": "Ngày sinh",
+    "gender": "Giới tính",
+    "reason": "Lý do khám bệnh"
   }
 }

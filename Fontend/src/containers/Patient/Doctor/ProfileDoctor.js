@@ -4,6 +4,7 @@ import "./ProfileDoctor.scss";
 import { LANGUAGES } from "../../../utils";
 import { getProfileDoctor } from "../../../services/userService";
 import NumberFormat from "react-number-format";
+import { FormattedMessage } from "react-intl";
 import _ from "lodash";
 import moment from "moment";
 
@@ -51,7 +52,10 @@ class ProfileDoctor extends Component {
       return (
         <>
           <div>
-            <span>thời gian đặt</span> {time}
+            <span>
+              <FormattedMessage id="book-modal.timeBookModal" />
+            </span>{" "}
+            {time}
           </div>
         </>
       );
@@ -73,7 +77,10 @@ class ProfileDoctor extends Component {
       return (
         <>
           <div style={{ textTransform: "capitalize" }}>
-            <span>ngày đặt</span> {date}
+            <span>
+              <FormattedMessage id="book-modal.dateBookModal" />
+            </span>{" "}
+            {date}
           </div>
         </>
       );
@@ -116,7 +123,9 @@ class ProfileDoctor extends Component {
         </div>
         <div className="more-info">
           <div className="price-schedule">
-            <span>Giá khám</span>
+            <span>
+              <FormattedMessage id="book-modal.priceBookModal" />
+            </span>
             <span>
               {dataProfile &&
                 dataProfile.Doctor_Info &&

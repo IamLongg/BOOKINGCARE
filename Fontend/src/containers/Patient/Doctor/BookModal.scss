@@ -17,6 +17,9 @@
           cursor: pointer;
         }
       }
+      span:first-child {
+        font-size: 2rem;
+      }
     }
     &-body {
       label {

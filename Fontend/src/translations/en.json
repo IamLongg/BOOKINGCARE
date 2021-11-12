@@ -84,5 +84,19 @@
       "createInfo": "Create Info",
       "saveInfo": "Save Info"
     }
+  },
+
+  "book-modal": {
+    "infoBookModal": "medical appointment booking information",
+    "priceBookModal": "price",
+    "dateBookModal": "date",
+    "timeBookModal": "Time",
+    "fullName": "Full Name",
+    "numberPhone": "Phone Number",
+    "email": "Email",
+    "address": "Address",
+    "birthday": "Birthday",
+    "gender": "Gender",
+    "reason": "Reasons for medical examination"
   }
 }
