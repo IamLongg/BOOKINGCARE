@@ -35,6 +35,12 @@ module.exports = {
       note: {
         type: Sequelize.STRING,
       },
+      specialtyID: {
+        type: Sequelize.INTEGER,
+      },
+      clinicID: {
+        type: Sequelize.INTEGER,
+      },
       count: {
         type: Sequelize.INTEGER,
         allowNull: false,

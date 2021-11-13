@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import HomeHeader from "../../HomePage/Header/HomeHeader";
+import Footer from "../../HomePage/Footer/Footer";
 import "./DetailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
@@ -96,6 +97,8 @@ class DetailDoctor extends Component {
             <DoctorSchedule doctorIdFromParent={this.state.currentDoctorID} />
           </div>
         </div>
+
+        <Footer />
       </>
     );
   }

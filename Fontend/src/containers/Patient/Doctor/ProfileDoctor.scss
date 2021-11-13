@@ -46,4 +46,19 @@
       text-transform: capitalize;
     }
   }
+  .datetime-schedule {
+    display: inline-block;
+    font-size: 1.6rem;
+    border: 0.2rem solid #00af95;
+    background-color: #f1f1f1;
+    font-weight: 500;
+    color: #00af95;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    span {
+      margin: 0.5rem;
+      text-transform: capitalize;
+    }
+  }
 }

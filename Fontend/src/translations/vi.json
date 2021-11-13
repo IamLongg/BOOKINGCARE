@@ -92,6 +92,8 @@
     "chooseProvince": "Chọn Tỉnh Thành",
     "chooseNameSchedule": "Chọn Tên Phòng Khám",
     "chooseAddressSchedule": "Chọn Địa Chỉ Phòng Khám",
+    "chooseSpecialty": "Chọn chuyên khoa",
+    "chooseClinic": "Chọn phòng khám",
     "note": "Ghi Chú"
   },
 
@@ -105,6 +107,10 @@
     "subPayment": "Có thể thanh toán thông qua",
     "scheduleNote": "ghi chú",
     "schedulePrice": "giá khám"
+  },
+
+  "page-detail-specialty": {
+    "infoDoctor": "Thông tin bác sĩ"
   },
 
   "admin": {

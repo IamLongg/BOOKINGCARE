@@ -60,24 +60,45 @@ let getAllDoctors = () => {
   });
 };
 
+let checkRequiredFields = (data) => {
+  let arr = [
+    "doctorID",
+    "contentHTML",
+    "contentMarkDown",
+    "action",
+    "selectedPrice",
+    "selectedPayment",
+    "selectedProvince",
+    "nameClinic",
+    "addressClinic",
+    "specialtyID",
+    "note",
+  ];
+
+  let isValid = true;
+  let element = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (!data[arr[i]]) {
+      isValid = false;
+      element = arr[i];
+      break;
+    }
+  }
+
+  return {
+    isValid: isValid,
+    element: element,
+  };
+};
+
 let saveDetailInfoDoctors = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (
-        !data.doctorID ||
-        !data.contentHTML ||
-        !data.contentMarkDown ||
-        !data.action ||
-        !data.selectedPrice ||
-        !data.selectedPayment ||
-        !data.selectedProvince ||
-        !data.nameClinic ||
-        !data.addressClinic ||
-        !data.note
-      ) {
+      let checkObj = checkRequiredFields(data);
+      if (checkObj.isValid === false) {
         resolve({
           errCode: 1,
-          errMessage: "Missing parameters",
+          errMessage: `Missing parameters : ${checkObj.element}`,
         });
       } else {
         // upsert to Markdown
@@ -118,6 +139,8 @@ let saveDetailInfoDoctors = (data) => {
           doctorInfo.provinceID = data.selectedProvince;
           doctorInfo.nameClinic = data.nameClinic;
           doctorInfo.addressClinic = data.addressClinic;
+          doctorInfo.specialtyID = data.specialtyID;
+          doctorInfo.clinicID = data.clinicID;
           doctorInfo.note = data.note;
           await doctorInfo.save();
         } else {
@@ -129,6 +152,8 @@ let saveDetailInfoDoctors = (data) => {
             provinceID: data.selectedProvince,
             nameClinic: data.nameClinic,
             addressClinic: data.addressClinic,
+            specialtyID: data.specialtyID,
+            clinicID: data.clinicID,
             note: data.note,
           });
         }

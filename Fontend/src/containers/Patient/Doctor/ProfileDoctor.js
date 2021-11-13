@@ -150,10 +150,10 @@ class ProfileDoctor extends Component {
             </span>
           </div>
 
-          <div className="price-schedule">
+          <div className="datetime-schedule ">
             {this.renderDateBooking(dataTimeScheduleModal)}
           </div>
-          <div className="price-schedule">
+          <div className="datetime-schedule">
             {this.renderTimeBooking(dataTimeScheduleModal)}
           </div>
         </div>
