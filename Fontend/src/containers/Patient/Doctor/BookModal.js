@@ -148,8 +148,8 @@ class BookModal extends Component {
     if (dataTimeScheduleModal && !_.isEmpty(dataTimeScheduleModal)) {
       let name =
         language === LANGUAGES.VI
-          ? `${dataTimeScheduleModal.doctorData.lastName} ${dataTimeScheduleModal.doctorData.firstName}`
-          : `${dataTimeScheduleModal.doctorData.firstName} ${dataTimeScheduleModal.doctorData.lastName}`;
+          ? ` ${dataTimeScheduleModal.doctorData.firstName} ${dataTimeScheduleModal.doctorData.lastName}`
+          : ` ${dataTimeScheduleModal.doctorData.lastName} ${dataTimeScheduleModal.doctorData.firstName}`;
 
       return name;
     }

@@ -45,11 +45,41 @@
     "Edit": "Lưu thay đổi"
   },
 
+  "advertisment-home": {
+    "title1": "100% bác sĩ được cấp phép",
+    "title2": "đặt lịch nhanh chóng",
+    "title3": "đánh giá thực tế từ bệnh nhân"
+  },
+
+  "specialty-home": {
+    "title": "Chuyên khoa phổ biến",
+    "more-info": "Xem thêm"
+  },
+
   "outstandingdoctor-home": {
     "title": "BÁC SĨ NỔI BẬC",
     "more-info": "Xem thêm",
     "desc": "Đặt khám trực tiếp tới đội ngũ bác sĩ của ISOFHCARE có trình độ chuyên môn cao, nhiều năm kinh nghiệm, giàu y đức, giúp bạn hoàn toàn chủ động lựa chọn thời gian khám",
     "doctor": "Bác sĩ ơi"
+  },
+
+  "footer-page": {
+    "company": "Công ty 1 thành viên",
+    "address": "Địa chỉ",
+    "addressInfo": "Tầng 6, Tòa nhà FORD, 313-315 Trường Chinh, Thanh Xuân Hà Nội",
+    "phone": "Số Điện Thoại",
+    "phoneInfo": "1900 638 367",
+    "email": "Email",
+    "emailInfo": "isofhcare@isofhcare.com",
+    "link": "Liên Kết",
+    "link1": "Liên kết hợp tác",
+    "link2": "Câu hỏi thường gặp",
+    "link3": "Điều khoản sử dụng",
+    "link4": "Chính sách bảo mật",
+    "downloadApp": "Tải App",
+    "downloadAppInfo": "Tải Miễn Phí ISOFHCARE - Ứng Dụng Đặt Lịch Khám Online Hàng Đầu",
+    "qr": "Quét QR Code Để",
+    "socials": "Mạng Xã Hội"
   },
 
   "manage-schedule": {
@@ -99,5 +129,14 @@
     "birthday": "Ngày sinh",
     "gender": "Giới tính",
     "reason": "Lý do khám bệnh"
+  },
+
+  "verify-email": {
+    "notifySuccess": "Đã xác nhận đặt lịch thành công ! ",
+    "notifySuccessMoreInfo": "Hệ thống sẽ cập nhật và thông báo qua số điện thoại hoặc email trong thời gian ngắn nhất.",
+    "notifyThankyou": "Xin chân thành cảm ơn quý khách đã đặt lịch khám bệnh tại ISOFHCARE ! ",
+    "notifyFailed": "Lịch hẹn đã được xác nhận hoặc đã tồn tại !",
+    "notifyLink": "Vui lòng quay về trang chủ để biết thêm thông tin tại ISOFHCARE ! ",
+    "notifyLinkHere": "Nhấn tại đây"
   }
 }

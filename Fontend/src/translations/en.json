@@ -44,11 +44,42 @@
     "Save": "Create",
     "Edit": "Edit User"
   },
+
+  "advertisment-home": {
+    "title1": "100% licensed doctor",
+    "title2": "Book an appointment quickly",
+    "title3": "Actual reviews from patients"
+  },
+
+  "specialty-home": {
+    "title": "Popular specialties",
+    "more-info": "more info"
+  },
+
   "outstandingdoctor-home": {
     "title": "Outstanding Doctor",
     "more-info": "More Info",
     "desc": "Set up directly to ISOFHCARE's team of highly qualified doctors, many years of experience, rich in medical ethics, helping you to choose from time to time.",
     "doctor": "Doctor"
+  },
+
+  "footer-page": {
+    "company": "Company member",
+    "address": "Address",
+    "addressInfo": "6th Floor, FORD Building, 313-315 Truong Chinh, Thanh Xuan Hanoi",
+    "phone": "PhoneNumber",
+    "phoneInfo": "1900 638 367",
+    "email": "Email",
+    "emailInfo": "isofhcare@isofhcare.com",
+    "link": "Link",
+    "link1": "Cooperation link",
+    "link2": "Frequently asked questions",
+    "link3": "terms of use",
+    "link4": "Privacy Policy",
+    "downloadApp": "Download App",
+    "downloadAppInfo": "Free Download ISOFHCARE - The Leading Online Clinic Booking App",
+    "qr": "Scan QR Code ",
+    "socials": "Social Network"
   },
 
   "manage-schedule": {
@@ -98,5 +129,14 @@
     "birthday": "Birthday",
     "gender": "Gender",
     "reason": "Reasons for medical examination"
+  },
+
+  "verify-email": {
+    "notifySuccess": "Appointment confirmed successfully!",
+    "notifySuccessMoreInfo": "The system will update and notify via phone number or email in the shortest time.",
+    "notifyThankyou": "Thank you very much for booking an appointment at ISOFHCARE !",
+    "notifyFailed": "Appointment confirmed or already exists !",
+    "notifyLink": "Please return to the home page for more information at ISOFHCARE !",
+    "notifyLinkHere": "Click here "
   }
 }

@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.scss";
 import "./Advertisment.scss";
 import AdvertismentImg from "../../../assets/advertisment/chungchi.png";
+import AdvertismentImg1 from "../../../assets/advertisment/time.png";
+import AdvertismentImg2 from "../../../assets/advertisment/danhgia.png";
 
 class Advertisment extends Component {
   render() {
@@ -15,17 +17,23 @@ class Advertisment extends Component {
           <div className="advertisment-main">
             <div className="advertisment-main-box">
               <img src={AdvertismentImg} className="image" />
-              <h3 className="title">100% bác sĩ được cấp phép</h3>
+              <h3 className="title">
+                <FormattedMessage id="advertisment-home.title1" />
+              </h3>
             </div>
 
             <div className="advertisment-main-box">
-              <img src={AdvertismentImg} className="image" />
-              <h3 className="title">100% bác sĩ được cấp phép</h3>
+              <img src={AdvertismentImg1} className="image" />
+              <h3 className="title">
+                <FormattedMessage id="advertisment-home.title2" />
+              </h3>
             </div>
 
             <div className="advertisment-main-box">
-              <img src={AdvertismentImg} className="image" />
-              <h3 className="title">100% bác sĩ được cấp phép</h3>
+              <img src={AdvertismentImg2} className="image" />
+              <h3 className="title">
+                <FormattedMessage id="advertisment-home.title3" />
+              </h3>
             </div>
           </div>
         </div>

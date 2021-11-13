@@ -14,46 +14,74 @@ class Footer extends Component {
           <div className="Footer-row">
             <div className="Footer-row-info">
               <div className="image"></div>
-              <h2>công ty 1 thành viên</h2>
-              <h2>địa chỉ</h2>
+              <h2>
+                <FormattedMessage id="footer-page.company" />
+              </h2>
+              <h2>
+                <FormattedMessage id="footer-page.address" />
+              </h2>
               <p>
-                Tầng 6, Tòa nhà FORD, 313-315 Trường Chinh, Thanh Xuân Hà Nội
+                <FormattedMessage id="footer-page.addressInfo" />
               </p>
-              <h2>số điện thoại</h2>
-              <a href="">1900 638 367</a>
-              <h2>email</h2>
-              <a href="">isofhcare@isofhcare.com</a>
+              <h2>
+                <FormattedMessage id="footer-page.phone" />
+              </h2>
+              <a href="">
+                <FormattedMessage id="footer-page.phoneInfo" />
+              </a>
+              <h2>
+                <FormattedMessage id="footer-page.email" />
+              </h2>
+              <a href="">
+                <FormattedMessage id="footer-page.emailInfo" />
+              </a>
             </div>
 
             <div className="Footer-row-connect">
-              <div className="Footer-title">liên kết</div>
+              <div className="Footer-title">
+                <FormattedMessage id="footer-page.link" />
+              </div>
               <h3>
-                <a href="">Liên kết hợp tác</a>
+                <a href="">
+                  <FormattedMessage id="footer-page.link1" />
+                </a>
               </h3>
               <h3>
-                <a href="">Câu hỏi thường gặp</a>
+                <a href="">
+                  <FormattedMessage id="footer-page.link2" />
+                </a>
               </h3>
               <h3>
-                <a href="">Điều khoản sử dụng</a>
+                <a href="">
+                  <FormattedMessage id="footer-page.link3" />
+                </a>
               </h3>
               <h3>
-                <a href="">Chính sách bảo mật</a>
+                <a href="">
+                  <FormattedMessage id="footer-page.link4" />
+                </a>
               </h3>
               <div className="certificate-notify"></div>
               <div className="certificate-register"></div>
             </div>
 
             <div className="Footer-row-appdown">
-              <div className="Footer-title">tải app</div>
+              <div className="Footer-title">
+                <FormattedMessage id="footer-page.downloadApp" />
+              </div>
               <h2>
-                Tải miễn phí ISOFHCARE - Ứng dụng đặt lịch khám online hàng đầu
+                <FormattedMessage id="footer-page.downloadAppInfo" />
               </h2>
-              <h2>Quét QR code để</h2>
+              <h2>
+                <FormattedMessage id="footer-page.qr" />
+              </h2>
               <div className="qrcode"></div>
             </div>
 
             <div className="Footer-row-socials">
-              <div className="Footer-title">mạng xã hội</div>
+              <div className="Footer-title">
+                <FormattedMessage id="footer-page.socials" />
+              </div>
               <h2>
                 FaceBook
                 <a href="" className="Footer-row-socials-link">
