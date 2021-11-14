@@ -25,7 +25,7 @@ let postCreateNewClinic = (data) => {
 
         resolve({
           errCode: 0,
-          errMessage: "create new specialty success !",
+          errMessage: "create new clinic success !",
         });
       }
     } catch (e) {

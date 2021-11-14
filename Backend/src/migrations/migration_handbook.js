@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      address: {
+      info: {
         type: Sequelize.STRING,
       },
       descriptionMarkDown: {

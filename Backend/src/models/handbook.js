@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   HandBook.init(
     {
-      address: DataTypes.STRING,
+      info: DataTypes.STRING,
       descriptionHTML: DataTypes.TEXT("long"),
       descriptionMarkDown: DataTypes.TEXT("long"),
       image: DataTypes.TEXT,

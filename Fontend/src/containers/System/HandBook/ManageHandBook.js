@@ -16,7 +16,7 @@ class ManageHandBook extends Component {
     super(props);
     this.state = {
       name: "",
-      address: "",
+      info: "",
       imageBase64: "",
       descriptionHTML: "",
       descriptionMarkDown: "",
@@ -62,7 +62,7 @@ class ManageHandBook extends Component {
       toast.success("Tạo bài viết thành công !");
       this.setState({
         name: "",
-        address: "",
+        info: "",
         imageBase64: "",
         descriptionHTML: "",
         descriptionMarkDown: "",
@@ -80,7 +80,7 @@ class ManageHandBook extends Component {
           <div className="admin-title">Quản lý cẩm nang</div>
           <div className="markdown row">
             <div className="col-6 form-group">
-              <label>Tiêu đề</label>
+              <label>Tiêu đề bài viết</label>
               <input
                 className="form-control"
                 value={this.state.name}
@@ -96,11 +96,11 @@ class ManageHandBook extends Component {
               ></input>
             </div>
             <div className="col-6 form-group">
-              <label>Địa chỉ</label>
+              <label>Thông tin</label>
               <input
                 className="form-control"
-                value={this.state.address}
-                onChange={(event) => this.handleOnChangeInput(event, "address")}
+                value={this.state.info}
+                onChange={(event) => this.handleOnChangeInput(event, "info")}
               ></input>
             </div>
             <div className="col-12">

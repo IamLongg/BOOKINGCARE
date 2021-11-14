@@ -5,7 +5,7 @@ let postCreateNewHandBook = (data) => {
     try {
       if (
         !data.name ||
-        !data.address ||
+        !data.info ||
         !data.imageBase64 ||
         !data.descriptionHTML ||
         !data.descriptionMarkDown
@@ -17,7 +17,7 @@ let postCreateNewHandBook = (data) => {
       } else {
         await db.HandBook.create({
           name: data.name,
-          address: data.address,
+          info: data.info,
           image: data.imageBase64,
           descriptionHTML: data.descriptionHTML,
           descriptionMarkDown: data.descriptionMarkDown,
@@ -25,7 +25,7 @@ let postCreateNewHandBook = (data) => {
 
         resolve({
           errCode: 0,
-          errMessage: "create new specialty success !",
+          errMessage: "create new handbook success !",
         });
       }
     } catch (e) {
