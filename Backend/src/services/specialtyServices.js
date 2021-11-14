@@ -1,3 +1,4 @@
+const { reject } = require("lodash");
 const db = require("../models");
 
 let postCreateNewSpecialty = (data) => {
@@ -53,7 +54,52 @@ let getAllSpecialty = () => {
   });
 };
 
+let getDetailSpecialtyByID = (inputID, location) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!inputID || !location) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing parameters",
+        });
+      } else {
+        let data = await db.Specialty.findOne({
+          where: { id: inputID },
+          attributes: ["descriptionHTML", "descriptionMarkDown"],
+        });
+
+        if (data) {
+          let doctorSpecialty = [];
+          if (location === "ALL") {
+            doctorSpecialty = await db.Doctor_Info.findAll({
+              where: { specialtyID: inputID },
+              attributes: ["doctorID", "provinceID"],
+            });
+          } else {
+            //find by location
+            doctorSpecialty = await db.Doctor_Info.findAll({
+              where: { specialtyID: inputID, provinceID: location },
+              attributes: ["doctorID", "provinceID"],
+            });
+          }
+
+          data.doctorSpecialty = doctorSpecialty;
+        } else data = {};
+
+        resolve({
+          errCode: 0,
+          errMessage: "OK",
+          data,
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   postCreateNewSpecialty: postCreateNewSpecialty,
   getAllSpecialty: getAllSpecialty,
+  getDetailSpecialtyByID: getDetailSpecialtyByID,
 };

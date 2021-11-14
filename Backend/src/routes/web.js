@@ -54,6 +54,10 @@ let initWebRoutes = (app) => {
     specialtyController.postCreateNewSpecialty
   );
   router.get("/api/get-all-specialty", specialtyController.getAllSpecialty);
+  router.get(
+    "/api/get-detail-specialty-by-id",
+    specialtyController.getDetailSpecialtyByID
+  );
 
   // router.get("/duclong", (req, res) => {
   //   return res.send("hello long");

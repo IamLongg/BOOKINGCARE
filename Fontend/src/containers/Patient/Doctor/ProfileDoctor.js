@@ -7,6 +7,7 @@ import NumberFormat from "react-number-format";
 import { FormattedMessage } from "react-intl";
 import _ from "lodash";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 class ProfileDoctor extends Component {
   constructor(props) {
@@ -89,14 +90,15 @@ class ProfileDoctor extends Component {
 
   render() {
     let { dataProfile } = this.state;
-    let { language, dataTimeScheduleModal } = this.props;
+    let { language, dataTimeScheduleModal, isShowLinkDetail, doctorID } =
+      this.props;
     let nameVi = "",
       nameEn = "";
     if (dataProfile && dataProfile.positionData) {
       nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.firstName}  ${dataProfile.lastName}`;
       nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.firstName}  ${dataProfile.lastName}`;
     }
-    console.log(" alo check props:", this.props);
+
     return (
       <>
         <div className="doctor-desc-profile">
@@ -121,6 +123,15 @@ class ProfileDoctor extends Component {
             </div>
           </div>
         </div>
+
+        {isShowLinkDetail === true && (
+          <div className="moreInfoDoctor">
+            <Link to={`/detail-doctor/${doctorID}`}>
+              <FormattedMessage id="specialty-home.more-info" />
+            </Link>
+          </div>
+        )}
+
         <div className="more-info">
           <div className="price-schedule">
             <span>
@@ -150,10 +161,10 @@ class ProfileDoctor extends Component {
             </span>
           </div>
 
-          <div className="datetime-schedule ">
+          <div className="price-schedule ">
             {this.renderDateBooking(dataTimeScheduleModal)}
           </div>
-          <div className="datetime-schedule">
+          <div className="price-schedule">
             {this.renderTimeBooking(dataTimeScheduleModal)}
           </div>
         </div>

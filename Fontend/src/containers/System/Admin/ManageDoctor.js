@@ -196,7 +196,7 @@ class ManageDoctor extends Component {
 
   handleChangeSelect = async (selectedOption) => {
     this.setState({ selectedOption });
-    let { listPrice, listPayment, listProvince } = this.state;
+    let { listPrice, listPayment, listProvince, listSpecialty } = this.state;
 
     let res = await getDetailInfoDoctor(selectedOption.value);
     if (
@@ -215,7 +215,9 @@ class ManageDoctor extends Component {
         priceID = "",
         selectedPayment = "",
         selectedProvince = "",
-        selectedPrice = "";
+        selectedPrice = "",
+        selectedSpecialty = "",
+        specialtyID = "";
 
       if (res.data.data.Doctor_Info) {
         addressClinic = res.data.data.Doctor_Info.addressClinic;
@@ -224,15 +226,20 @@ class ManageDoctor extends Component {
 
         paymentID = res.data.data.Doctor_Info.paymentID;
         selectedPayment = listPayment.find((item) => {
-          return item && item.value == paymentID;
+          return item && item.value === paymentID;
         });
         provinceID = res.data.data.Doctor_Info.provinceID;
         selectedProvince = listProvince.find((item) => {
-          return item && item.value == provinceID;
+          return item && item.value === provinceID;
         });
         priceID = res.data.data.Doctor_Info.priceID;
         selectedPrice = listPrice.find((item) => {
-          return item && item.value == priceID;
+          return item && item.value === priceID;
+        });
+
+        specialtyID = res.data.data.Doctor_Info.specialtyID;
+        selectedSpecialty = listSpecialty.find((item) => {
+          return item && item.value === specialtyID;
         });
       }
 
@@ -247,6 +254,7 @@ class ManageDoctor extends Component {
         selectedPayment: selectedPayment,
         selectedProvince: selectedProvince,
         selectedPrice: selectedPrice,
+        selectedSpecialty: selectedSpecialty,
       });
     } else {
       this.setState({
@@ -257,6 +265,10 @@ class ManageDoctor extends Component {
         addressClinic: "",
         nameClinic: "",
         note: "",
+        selectedPayment: "",
+        selectedProvince: "",
+        selectedPrice: "",
+        selectedSpecialty: "",
       });
     }
   };

@@ -28,25 +28,30 @@
   }
 }
 
+.moreInfoDoctor {
+  display: inline-block;
+  margin: 0 2rem;
+  padding: 0.6rem 1rem;
+  background-color: #0c4d43;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.25s linear;
+  &:hover {
+    background-color: #3161ad;
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
 .more-info {
   display: flex;
   justify-content: space-between;
   .price-schedule {
-    display: inline-block;
-    font-size: 1.6rem;
-    border: 0.2rem solid #00af95;
-    background-color: #f1f1f1;
-    font-weight: 500;
-    color: #00af95;
-    padding: 1.2rem;
-    border-radius: 0.5rem;
-    margin: 1rem 0;
-    span {
-      margin: 0.5rem;
-      text-transform: capitalize;
-    }
-  }
-  .datetime-schedule {
     display: inline-block;
     font-size: 1.6rem;
     border: 0.2rem solid #00af95;
