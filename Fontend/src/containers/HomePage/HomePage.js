@@ -11,6 +11,7 @@ import OutstandingDoctor from "./OutstandingDoctor/OutstandingDoctor";
 import HandBook from "./HandBook/HandBook";
 import About from "./About/About";
 import Footer from "./Footer/Footer";
+
 class HomePage extends Component {
   render() {
     let settings = {

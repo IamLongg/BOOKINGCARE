@@ -117,7 +117,8 @@
     "address": "Address",
     "phone": "Phone",
     "gender": "Gender",
-    "actions": "Actions"
+    "actions": "Actions",
+    "confirm": "ConFirm"
   },
 
   "page-detail-doctor": {

@@ -117,7 +117,8 @@
     "address": "Địa Chỉ",
     "phone": "Số Điện Thoại",
     "gender": "Giới Tính",
-    "actions": "Actions"
+    "actions": "Actions",
+    "confirm": "Xác Nhận"
   },
 
   "page-detail-doctor": {

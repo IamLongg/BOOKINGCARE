@@ -189,7 +189,7 @@ class ManagePatient extends Component {
                                       this.handleConfirmAndSend(item)
                                     }
                                   >
-                                    Xác Nhận
+                                    <FormattedMessage id="manage-patient.confirm" />
                                   </button>
                                 </td>
                               </tr>
