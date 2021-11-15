@@ -42,6 +42,11 @@ let initWebRoutes = (app) => {
   );
   router.get("/api/get-profile-doctor", doctorController.getProfileDoctor);
 
+  router.get(
+    "/api/get-list-patient-for-doctor",
+    doctorController.getListPatientForDoctor
+  );
+
   router.post(
     "/api/patient-book-appointment",
     patientController.postBookAppointMent
@@ -62,21 +67,21 @@ let initWebRoutes = (app) => {
   );
 
   router.post("/api/create-new-clinic", clinicController.postCreateNewClinic);
-  // router.get("/api/get-all-specialty", specialtyController.getAllSpecialty);
-  // router.get(
-  //   "/api/get-detail-specialty-by-id",
-  //   specialtyController.getDetailSpecialtyByID
-  // );
+  router.get("/api/get-all-clinic", clinicController.getAllClinic);
+  router.get(
+    "/api/get-detail-clinic-by-id",
+    clinicController.getDetailClinicByID
+  );
 
   router.post(
     "/api/create-new-handbook",
     handbookController.postCreateNewHandBook
   );
-  // router.get("/api/get-all-specialty", specialtyController.getAllSpecialty);
-  // router.get(
-  //   "/api/get-detail-specialty-by-id",
-  //   specialtyController.getDetailSpecialtyByID
-  // );
+  router.get("/api/get-all-handbook", handbookController.getAllHandBook);
+  router.get(
+    "/api/get-detail-handbook-by-id",
+    handbookController.getDetailHandBookByID
+  );
 
   // router.get("/duclong", (req, res) => {
   //   return res.send("hello long");

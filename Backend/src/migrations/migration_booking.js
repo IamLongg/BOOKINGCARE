@@ -17,7 +17,7 @@ module.exports = {
       patientID: {
         type: Sequelize.STRING,
       },
-      address: {
+      email: {
         type: Sequelize.STRING,
       },
       numberPhone: {

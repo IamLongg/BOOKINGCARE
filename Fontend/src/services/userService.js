@@ -92,6 +92,21 @@ const postCreateNewHandBook = (data) => {
   return axios.post(`${baseURL}/api/create-new-handbook`, data);
 };
 
+const getAllClinic = () => {
+  return axios.get(`${baseURL}/api/get-all-clinic`);
+};
+
+const getDetailClinicByID = (data) => {
+  return axios.get(`${baseURL}/api/get-detail-clinic-by-id?id=${data.id}`);
+};
+
+const getDetailHandBookByID = (id) => {
+  return axios.get(`${baseURL}/api/get-detail-handbook-by-id?id=${id}`);
+};
+
+const getAllHandBook = () => {
+  return axios.get(`${baseURL}/api/get-all-handbook`);
+};
 export {
   handleLoginApi,
   getAllUsers,
@@ -114,4 +129,8 @@ export {
   getDetailSpecialtyByID,
   postCreateNewClinic,
   postCreateNewHandBook,
+  getAllClinic,
+  getAllHandBook,
+  getDetailClinicByID,
+  getDetailHandBookByID,
 };

@@ -54,7 +54,7 @@ class Header extends Component {
             {
               (userInfo && userInfo.firstName,
               userInfo.lastName
-                ? userInfo.lastName + " " + userInfo.firstName
+                ? userInfo.firstName + " " + userInfo.lastName
                 : "")
             }{" "}
           </div>

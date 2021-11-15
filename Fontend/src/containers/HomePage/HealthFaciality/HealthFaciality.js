@@ -5,8 +5,32 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.scss";
 import "./HealthFaciality.scss";
+import { getAllClinic } from "../../../services/userService";
+import { withRouter } from "react-router";
 
 class HealthFaciality extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataClinics: [],
+    };
+  }
+
+  async componentDidMount() {
+    let res = await getAllClinic();
+    if (res && res.data.errCode === 0) {
+      this.setState({
+        dataClinics: res.data.data ? res.data.data : [],
+      });
+    }
+  }
+
+  handleViewDetailClinic = (item) => {
+    if (this.props.history) {
+      this.props.history.push(`/detail-clinic/${item.id}`);
+    }
+  };
+
   render() {
     let settings = {
       dots: false,
@@ -15,6 +39,8 @@ class HealthFaciality extends Component {
       slidesToShow: 4,
       slidesToScroll: 1,
     };
+
+    let { dataClinics } = this.state;
     return (
       <div className="HealthFaciality">
         <div className="container">
@@ -24,47 +50,25 @@ class HealthFaciality extends Component {
           </div>
           <div className="HealthFaciality-main">
             <Slider {...settings}>
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">cơ sỏ 1</h3>
-                </div>
-              </div>
-
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">Cơ Xương Khớp</h3>
-                </div>
-              </div>
-
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">Cơ Xương Khớp</h3>
-                </div>
-              </div>
-
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">Cơ Xương Khớp</h3>
-                </div>
-              </div>
-
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">Cơ Xương Khớp</h3>
-                </div>
-              </div>
-
-              <div className="img-custom">
-                <div className="box">
-                  <div className="image" />
-                  <h3 className="title">Cơ Xương Khớp</h3>
-                </div>
-              </div>
+              {dataClinics &&
+                dataClinics.length > 0 &&
+                dataClinics.map((item, index) => {
+                  return (
+                    <div
+                      className="img-custom"
+                      key={index}
+                      onClick={() => this.handleViewDetailClinic(item)}
+                    >
+                      <div className="box">
+                        <div
+                          className="image"
+                          style={{ backgroundImage: `url(${item.image})` }}
+                        />
+                        <h3 className="title">{item.name}</h3>
+                      </div>
+                    </div>
+                  );
+                })}
             </Slider>
           </div>
         </div>
@@ -84,4 +88,6 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HealthFaciality);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HealthFaciality)
+);
