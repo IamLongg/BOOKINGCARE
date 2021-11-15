@@ -1,0 +1,26 @@
+.form-label {
+  font-size: 1.6rem;
+}
+
+.form-control {
+  margin: 1rem 0;
+}
+
+.modal-header {
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: #00af95;
+}
+
+.btn-send {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  color: #fff;
+  font-size: 1.4rem;
+  background-color: #00af95;
+  border-radius: 0.5rem;
+  transition: 0.2s linear;
+  &:hover {
+    background-color: #235;
+  }
+}

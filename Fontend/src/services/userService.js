@@ -107,6 +107,17 @@ const getDetailHandBookByID = (id) => {
 const getAllHandBook = () => {
   return axios.get(`${baseURL}/api/get-all-handbook`);
 };
+
+const getListPatientForDoctor = (data) => {
+  return axios.get(
+    `${baseURL}/api/get-list-patient-for-doctor?doctorID=${data.id}&date=${data.date}`
+  );
+};
+
+const postSendConfirm = (data) => {
+  return axios.post(`${baseURL}/api/send-confirm`, data);
+};
+
 export {
   handleLoginApi,
   getAllUsers,
@@ -133,4 +144,6 @@ export {
   getAllHandBook,
   getDetailClinicByID,
   getDetailHandBookByID,
+  getListPatientForDoctor,
+  postSendConfirm,
 };

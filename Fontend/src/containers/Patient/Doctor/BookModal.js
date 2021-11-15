@@ -105,7 +105,7 @@ class BookModal extends Component {
       email: this.state.email,
       address: this.state.address,
       reason: this.state.reason,
-      date: date,
+      date: this.props.dataTimeScheduleModal.date,
       selectedGender: this.state.selectedGender.value,
       doctorID: this.state.doctorID,
       timeType: this.state.timeType,

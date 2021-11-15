@@ -108,6 +108,18 @@
     "note": "Note"
   },
 
+  "manage-patient": {
+    "datetimeSchedule": "Select the Calendar",
+    "id": "STT",
+    "time": "Time",
+    "email": "Email",
+    "fullName": "Full Name",
+    "address": "Address",
+    "phone": "Phone",
+    "gender": "Gender",
+    "actions": "Actions"
+  },
+
   "page-detail-doctor": {
     "schedule": "examination schedule",
     "scheduleDate": "Choose a Medical Checkup Date",

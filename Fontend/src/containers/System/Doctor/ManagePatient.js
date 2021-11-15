@@ -3,16 +3,44 @@ import { connect } from "react-redux";
 import "./ManagePatient.scss";
 import { FormattedMessage } from "react-intl";
 import DatePicker from "../../../components/Input/DatePicker";
+import {
+  getListPatientForDoctor,
+  postSendConfirm,
+} from "../../../services/userService";
+import moment from "moment";
+import { LANGUAGES } from "../../../utils";
+import ModalConfirm from "./ModalConfirm";
+import { toast } from "react-toastify";
 
 class ManagePatient extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentDate: new Date(),
+      currentDate: moment(new Date()).startOf("day").valueOf(),
+      dataPatient: [],
+      isOpenModalConfirm: false,
+      dataModal: [],
     };
   }
 
-  componentDidMount() {}
+  async componentDidMount() {
+    this.getDataPatient();
+  }
+
+  getDataPatient = async () => {
+    let { user } = this.props;
+    let { currentDate } = this.state;
+    let formatedDate = new Date(currentDate).getTime();
+    let res = await getListPatientForDoctor({
+      id: user.id,
+      date: formatedDate,
+    });
+    if (res && res.data.errCode === 0) {
+      this.setState({
+        dataPatient: res.data.data,
+      });
+    }
+  };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.language !== this.props.language) {
@@ -20,12 +48,62 @@ class ManagePatient extends Component {
   }
 
   handleOnChangeDatePicker = (date) => {
+    this.setState(
+      {
+        currentDate: date[0],
+      },
+      async () => {
+        await this.getDataPatient();
+      }
+    );
+  };
+
+  handleConfirmAndSend = (item) => {
+    let data = {
+      doctorID: item.doctorID,
+      patientID: item.patientID,
+      email: item.patientData.email,
+      timeType: item.timeType,
+      patientName: item.patientData.lastName,
+    };
+
     this.setState({
-      currentDate: date[0],
+      isOpenModalConfirm: true,
+      dataModal: data,
+    });
+    console.log("brodev check data", data);
+  };
+
+  close = () => {
+    this.setState({
+      isOpenModalConfirm: false,
+      dataModal: {},
     });
   };
 
+  sendMailConfirm = async (datafromModal) => {
+    let { dataModal } = this.state;
+    let res = await postSendConfirm({
+      email: datafromModal.email,
+      imgbase64: datafromModal.imgbase64,
+      doctorID: dataModal.doctorID,
+      patientID: dataModal.patientID,
+      timeType: dataModal.timeType,
+      language: this.props.language,
+      patientName: dataModal.patientName,
+    });
+    if (res && res.data.errCode === 0) {
+      toast.success("Xác nhận và gửi mail thành công !");
+      this.close();
+      await this.getDataPatient();
+    } else {
+      toast.error("Xác nhận thất bại !");
+    }
+  };
+
   render() {
+    let { language } = this.props;
+    let { dataPatient, isOpenModalConfirm, dataModal } = this.state;
     return (
       <React.Fragment>
         <div className="managePatient">
@@ -33,7 +111,9 @@ class ManagePatient extends Component {
             <FormattedMessage id="menu.doctor.manage-patient" />
           </div>
           <div className="col-4 form-group">
-            <label>Chọn ngày khám</label>
+            <label>
+              <FormattedMessage id="manage-patient.datetimeSchedule" />
+            </label>
             <DatePicker
               className="form-control"
               onChange={this.handleOnChangeDatePicker}
@@ -48,127 +128,78 @@ class ManagePatient extends Component {
                     <table>
                       <thead>
                         <tr className="table100-head">
-                          <th className="column1">Date</th>
-                          <th className="column2">Order ID</th>
-                          <th className="column3">Name</th>
-                          <th className="column4">Price</th>
-                          <th className="column5">Quantity</th>
-                          <th className="column6">Total</th>
+                          <th className="column1">
+                            <FormattedMessage id="manage-patient.id" />
+                          </th>
+                          <th className="column2">
+                            <FormattedMessage id="manage-patient.time" />
+                          </th>
+                          <th className="column3">
+                            <FormattedMessage id="manage-patient.email" />
+                          </th>
+                          <th className="column4">
+                            <FormattedMessage id="manage-patient.fullName" />
+                          </th>
+                          <th className="column5">
+                            <FormattedMessage id="manage-patient.address" />
+                          </th>
+                          <th className="column6">
+                            <FormattedMessage id="manage-patient.phone" />
+                          </th>
+                          <th className="column7">
+                            <FormattedMessage id="manage-patient.gender" />
+                          </th>
+                          <th className="column8">
+                            <FormattedMessage id="manage-patient.actions" />
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td className="column1">2017-09-29 01:22</td>
-                          <td className="column2">200398</td>
-                          <td className="column3">iPhone X 64Gb Grey</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-28 05:57</td>
-                          <td className="column2">200397</td>
-                          <td className="column3">Samsung S8 Black</td>
-                          <td className="column4">$756.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$756.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-26 05:57</td>
-                          <td className="column2">200396</td>
-                          <td className="column3">Game Console Controller</td>
-                          <td className="column4">$22.00</td>
-                          <td className="column5">2</td>
-                          <td className="column6">$44.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-25 23:06</td>
-                          <td className="column2">200392</td>
-                          <td className="column3">USB 3.0 Cable</td>
-                          <td className="column4">$10.00</td>
-                          <td className="column5">3</td>
-                          <td className="column6">$30.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-24 05:57</td>
-                          <td className="column2">200391</td>
-                          <td className="column3">Smartwatch 4.0 LTE Wifi</td>
-                          <td className="column4">$199.00</td>
-                          <td className="column5">6</td>
-                          <td className="column6">$1494.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-23 05:57</td>
-                          <td className="column2">200390</td>
-                          <td className="column3">Camera C430W 4k</td>
-                          <td className="column4">$699.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$699.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-22 05:57</td>
-                          <td className="column2">200389</td>
-                          <td className="column3">Macbook Pro Retina 2017</td>
-                          <td className="column4">$2199.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$2199.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-21 05:57</td>
-                          <td className="column2">200388</td>
-                          <td className="column3">Game Console Controller</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-19 05:57</td>
-                          <td className="column2">200387</td>
-                          <td className="column3">iPhone X 64Gb Grey</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-18 05:57</td>
-                          <td className="column2">200386</td>
-                          <td className="column3">iPhone X 64Gb Grey</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-22 05:57</td>
-                          <td className="column2">200389</td>
-                          <td className="column3">Macbook Pro Retina 2017</td>
-                          <td className="column4">$2199.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$2199.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-21 05:57</td>
-                          <td className="column2">200388</td>
-                          <td className="column3">Game Console Controller</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-19 05:57</td>
-                          <td className="column2">200387</td>
-                          <td className="column3">iPhone X 64Gb Grey</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
-                        <tr>
-                          <td className="column1">2017-09-18 05:57</td>
-                          <td className="column2">200386</td>
-                          <td className="column3">iPhone X 64Gb Grey</td>
-                          <td className="column4">$999.00</td>
-                          <td className="column5">1</td>
-                          <td className="column6">$999.00</td>
-                        </tr>
+                        {dataPatient && dataPatient.length > 0 ? (
+                          dataPatient.map((item, index) => {
+                            let time =
+                              language === LANGUAGES.VI
+                                ? item.timeTypeDataPaTient.valueVi
+                                : item.timeTypeDataPaTient.valueEn;
+                            let gender =
+                              language === LANGUAGES.VI
+                                ? item.patientData.genderData.valueVi
+                                : item.patientData.genderData.valueEn;
+                            return (
+                              <tr key={index}>
+                                <td className="column1">{index + 1}</td>
+                                <td className="column2">{time}</td>
+                                <td className="column3">
+                                  {item.patientData.email}
+                                </td>
+                                <td className="column4">
+                                  {item.patientData.lastName}
+                                </td>
+                                <td className="column5">
+                                  {item.patientData.address}
+                                </td>
+                                <td className="column6">
+                                  {item.patientData.numberPhone}
+                                </td>
+                                <td className="column7">{gender}</td>
+                                <td className="column8">
+                                  <button
+                                    className="btn-confirm"
+                                    onClick={() =>
+                                      this.handleConfirmAndSend(item)
+                                    }
+                                  >
+                                    Xác Nhận
+                                  </button>
+                                </td>
+                              </tr>
+                            );
+                          })
+                        ) : (
+                          <tr>
+                            <td colSpan="8">No data</td>
+                          </tr>
+                        )}
                       </tbody>
                     </table>
                   </div>
@@ -177,6 +208,13 @@ class ManagePatient extends Component {
             </div>
           </div>
         </div>
+
+        <ModalConfirm
+          isOpenModalConfirmMail={isOpenModalConfirm}
+          dataModal={dataModal}
+          close={this.close}
+          sendMailConfirm={this.sendMailConfirm}
+        />
       </React.Fragment>
     );
   }
@@ -184,8 +222,8 @@ class ManagePatient extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
+    user: state.user.userInfo,
   };
 };
 

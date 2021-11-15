@@ -108,6 +108,18 @@
     "note": "Ghi Chú"
   },
 
+  "manage-patient": {
+    "datetimeSchedule": "Chọn lịch ngày khám",
+    "id": "STT",
+    "time": "Thời Gian Đặt",
+    "email": "Email",
+    "fullName": "Họ Tên",
+    "address": "Địa Chỉ",
+    "phone": "Số Điện Thoại",
+    "gender": "Giới Tính",
+    "actions": "Actions"
+  },
+
   "page-detail-doctor": {
     "schedule": "Lịch Khám",
     "scheduleDate": "Chọn Ngày Khám",
