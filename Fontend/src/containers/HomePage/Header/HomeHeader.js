@@ -34,19 +34,19 @@ class HomeHeader extends Component {
               </li>
               <li>
                 {" "}
-                <a href="#">
+                <a href="#specialty">
                   <FormattedMessage id="homeheader.speciality" />
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="#">
+                <a href="#healthFaciality">
                   <FormattedMessage id="homeheader.health-facilities" />
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="#">
+                <a href="#handbook">
                   <FormattedMessage id="homeheader.handbook" />
                 </a>
               </li>

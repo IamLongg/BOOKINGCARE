@@ -37,7 +37,7 @@ class Specialty extends Component {
     let settings = this.props.settings;
     let { dataSpecialty } = this.state;
     return (
-      <div className="Specialty">
+      <div className="Specialty" id="specialty">
         <div className="container">
           <div className="info">
             <div className="heading">

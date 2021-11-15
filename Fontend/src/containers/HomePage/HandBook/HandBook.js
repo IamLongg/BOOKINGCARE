@@ -35,11 +35,15 @@ class HandBook extends Component {
     let { dataHandBook } = this.state;
     console.log("check state", this.state);
     return (
-      <div className="HandBook">
+      <div className="HandBook" id="handbook">
         <div className="container">
           <div className="info">
-            <div className="heading">cẩm nang</div>
-            <button className="more">xem thêm</button>
+            <div className="heading">
+              <FormattedMessage id="handbook-home.title" />
+            </div>
+            <button className="more">
+              <FormattedMessage id="handbook-home.more-info" />
+            </button>
           </div>
           <div className="HandBook-main">
             {dataHandBook &&

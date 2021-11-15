@@ -42,11 +42,17 @@ class HealthFaciality extends Component {
 
     let { dataClinics } = this.state;
     return (
-      <div className="HealthFaciality">
+      <div className="HealthFaciality" id="healthFaciality">
         <div className="container">
           <div className="info">
-            <div className="heading">cơ sở y tế nổi bậc</div>
-            <button className="more">xem thêm</button>
+            <div className="heading">
+              {" "}
+              <FormattedMessage id="healthyFacialty-home.title" />
+            </div>
+            <button className="more">
+              {" "}
+              <FormattedMessage id="healthyFacialty-home.more-info" />
+            </button>
           </div>
           <div className="HealthFaciality-main">
             <Slider {...settings}>
