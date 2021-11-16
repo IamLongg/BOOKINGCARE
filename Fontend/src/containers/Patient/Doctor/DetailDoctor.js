@@ -6,6 +6,8 @@ import "./DetailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
 import DoctorSchedule from "./DoctorSchedule";
+// import CommentFB from "../Socials/CommentFB";
+// import LikeShareFB from "../Socials/LikeShareFB";
 
 class DetailDoctor extends Component {
   constructor(props) {
