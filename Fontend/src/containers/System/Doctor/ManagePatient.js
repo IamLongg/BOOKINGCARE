@@ -61,6 +61,7 @@ class ManagePatient extends Component {
   handleConfirmAndSend = (item) => {
     let data = {
       doctorID: item.doctorID,
+      id: item.id,
       patientID: item.patientID,
       email: item.patientData.email,
       timeType: item.timeType,
@@ -91,7 +92,9 @@ class ManagePatient extends Component {
       timeType: dataModal.timeType,
       language: this.props.language,
       patientName: dataModal.patientName,
+      id: dataModal.id,
     });
+    console.log("brodev check res", res);
     if (res && res.data.errCode === 0) {
       toast.success("Xác nhận và gửi mail thành công !");
       this.close();

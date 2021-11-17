@@ -11,6 +11,7 @@ import OutstandingDoctor from "./OutstandingDoctor/OutstandingDoctor";
 import HandBook from "./HandBook/HandBook";
 import About from "./About/About";
 import Footer from "./Footer/Footer";
+import LandingPage from "./Map/LandingPage";
 
 class HomePage extends Component {
   render() {
@@ -40,6 +41,7 @@ class HomePage extends Component {
         <OutstandingDoctor />
         <HandBook />
         <About />
+        <LandingPage />
         <Footer />
       </div>
     );

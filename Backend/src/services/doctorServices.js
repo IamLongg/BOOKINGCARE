@@ -223,7 +223,7 @@ let getDetailDoctorById = (idInput) => {
         });
 
         if (data && data.image) {
-          data.image = new Buffer(data.image, "base64").toString("binary");
+          data.image = Buffer.from(data.image, "base64").toString("binary");
         }
 
         if (!data) data = {};
@@ -432,7 +432,7 @@ let getProfileDoctor = (idInput) => {
         });
 
         if (data && data.image) {
-          data.image = new Buffer(data.image, "base64").toString("binary");
+          data.image = Buffer.from(data.image, "base64").toString("binary");
         }
 
         if (!data) data = {};
@@ -506,7 +506,13 @@ let getListPatientForDoctor = (doctorID, date) => {
 let sendConfirm = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!data.email || !data.doctorID || !data.patientID || !data.timeType) {
+      if (
+        !data.id ||
+        !data.email ||
+        !data.doctorID ||
+        !data.patientID ||
+        !data.timeType
+      ) {
         resolve({
           errCode: 1,
           errMessage: "Missing required parameter",
@@ -516,6 +522,7 @@ let sendConfirm = (data) => {
         let appointment = await db.Booking.findOne({
           where: {
             doctorID: data.doctorID,
+            id: data.id,
             patientID: data.patientID,
             timeType: data.timeType,
             statusID: "S2",
@@ -529,6 +536,11 @@ let sendConfirm = (data) => {
         }
         //send email
         await sendMailServices.sendAtTachMent(data);
+
+        await db.Booking.destroy({
+          where: { id: data.id },
+        });
+
         resolve({
           errCode: 0,
           data: data,
