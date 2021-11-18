@@ -34,26 +34,23 @@ class HomeHeader extends Component {
               </li>
               <li>
                 {" "}
-                <a href="#specialty">
+                <a href="#specialty" onClick={() => this.handleReturnToHome()}>
                   <FormattedMessage id="homeheader.speciality" />
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="#healthFaciality">
+                <a
+                  href="#healthFaciality"
+                  onClick={() => this.handleReturnToHome()}
+                >
                   <FormattedMessage id="homeheader.health-facilities" />
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="#handbook">
+                <a href="#handbook" onClick={() => this.handleReturnToHome()}>
                   <FormattedMessage id="homeheader.handbook" />
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a href="#">
-                  <FormattedMessage id="homeheader.cooperation-contact" />
                 </a>
               </li>
             </ul>
@@ -88,6 +85,7 @@ class HomeHeader extends Component {
                 </p>
                 <div className="home-banner-main-search">
                   <input
+                    disabled
                     type="text"
                     className="input-search"
                     placeholder="Tìm chuyên khoa khám bệnh . . ."

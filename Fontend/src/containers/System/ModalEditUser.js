@@ -86,7 +86,7 @@ class ModalEditUser extends Component {
             this.toggle();
           }}
         >
-          Edit User
+          Sửa Người Dùng
         </ModalHeader>
         <ModalBody>
           <div className="container">
@@ -109,6 +109,9 @@ class ModalEditUser extends Component {
                   />
                 </div>
                 <div className="col-md-6">
+                  <label htmlFor="inputEmail4" className="form-label">
+                    Họ
+                  </label>
                   <input
                     style={{ fontSize: "1.6rem" }}
                     type="text"
@@ -122,6 +125,9 @@ class ModalEditUser extends Component {
                   />
                 </div>
                 <div className="col-md-6">
+                  <label htmlFor="inputEmail4" className="form-label">
+                    Tên
+                  </label>
                   <input
                     style={{ fontSize: "1.6rem" }}
                     type="text"
@@ -137,7 +143,7 @@ class ModalEditUser extends Component {
 
                 <div className="col-12">
                   <label htmlFor="inputAddress" className="form-label">
-                    Address
+                    Địa Chỉ
                   </label>
                   <input
                     style={{ fontSize: "1.6rem" }}
@@ -162,7 +168,7 @@ class ModalEditUser extends Component {
               this.handleSaveUser();
             }}
           >
-            Save
+            Thêm
           </Button>{" "}
           <Button
             color="secondary"
@@ -170,7 +176,7 @@ class ModalEditUser extends Component {
               this.toggle();
             }}
           >
-            Cancel
+            Hủy Bỏ
           </Button>
         </ModalFooter>
       </Modal>

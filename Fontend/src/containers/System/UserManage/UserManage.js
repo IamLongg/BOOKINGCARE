@@ -130,7 +130,9 @@ class UserManage extends Component {
           )}
           <div className="row justify-content-center">
             <div className="col-md-6 text-center ">
-              <h2 className="heading-section">TABLE ALL USER</h2>
+              <h2 className="heading-section admin-title">
+                Danh sách người dùng
+              </h2>
             </div>
           </div>
           <div
@@ -140,18 +142,18 @@ class UserManage extends Component {
             }}
           >
             <i className="fas fa-plus-circle" style={{ margin: "0 5px" }}></i>
-            Add New User
+            Thêm dùng người mới
           </div>
         </div>
         <table>
           <thead>
             <tr>
               <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Họ</th>
+              <th>Tên</th>
               <th>Email</th>
-              <th>Address</th>
-              <th>Actions</th>
+              <th>Địa Chỉ</th>
+              <th>Chức Năng</th>
             </tr>
           </thead>
 
@@ -160,7 +162,7 @@ class UserManage extends Component {
               arrUsers.map((item, index) => {
                 return (
                   <>
-                    <tr key={item}>
+                    <tr key={index}>
                       <td>{item.id}</td>
                       <td>{item.firstName}</td>
                       <td>{item.lastName}</td>
@@ -175,7 +177,7 @@ class UserManage extends Component {
                             this.handleEditUser(item);
                           }}
                         >
-                          Edit
+                          Sửa
                         </button>
                         <button
                           type="button"
@@ -185,7 +187,7 @@ class UserManage extends Component {
                             this.handleDeleteUser(item);
                           }}
                         >
-                          Delete
+                          Xóa
                         </button>
                       </td>
                     </tr>

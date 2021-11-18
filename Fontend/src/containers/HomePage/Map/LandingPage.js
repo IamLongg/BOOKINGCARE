@@ -283,7 +283,7 @@ class LocationSearchModal extends React.Component {
     );
 
     return (
-      <div style={{ padding: "1rem", margin: "5rem auto", maxWidth: "80%" }}>
+      <div style={{ padding: "1rem", margin: "5rem auto", maxWidth: "85%" }}>
         {/* <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.125052042528!2d106.71230301417192!3d10.80173316168126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBDw7RuZyBOZ2jhu4cgVFAuSENNIC0gSFVURUNI!5e0!3m2!1svi!2s!4v1637084375840!5m2!1svi!2s"
           style={{ width: "100%", height: "40rem", border: "0" }}

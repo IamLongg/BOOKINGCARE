@@ -61,7 +61,7 @@ class ModalConfirm extends Component {
     return (
       <>
         <Modal isOpen={isOpenModalConfirmMail} size="lg" centered>
-          <div className="modal-header">Confirm</div>
+          <div className="modal-header">Xác Nhận</div>
           <ModalBody>
             <div className="container">
               <div className="col-12">
@@ -97,10 +97,10 @@ class ModalConfirm extends Component {
               color="primary"
               onClick={() => this.handleSendMailConfirm()}
             >
-              Confirm
+              Xác nhận
             </button>{" "}
             <button className="btn-send" color="secondary" onClick={close}>
-              Cancel
+              Hủy bỏ
             </button>
           </ModalFooter>
         </Modal>

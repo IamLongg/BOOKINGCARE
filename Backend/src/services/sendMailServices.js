@@ -62,8 +62,7 @@ let getBodyHTMLEmailConfirm = (dataSend) => {
     result = `
     <h3> Xin chào, ${dataSend.patientName} !</h3>
     <p>Bạn nhận được email này vì đã đặt lịch khám bệnh online THÀNH CÔNG trên ISOFHCARE</p>
-    <p>Thông tin được gửi trong file đính kèm:</p>
-    <p>Vui lòng kiểm tra thông tin trước khi tiến hành xác nhận thủ tục hoàn tất. Nếu đã kiểm tra đúng thông tin vui lòng click vào link bên dưới để xác nhận hoàn tất thủ tục đặt lịch khám bệnh trực tuyến thành công tại ISOFHCARE </p>
+    <p>Thông tin được gửi trong file đính kèm bên dưới:</p>
     <div>Xin chân thành cảm ơn !</div>
     `;
   }
@@ -73,7 +72,6 @@ let getBodyHTMLEmailConfirm = (dataSend) => {
     <h3> Dear ${dataSend.patientName} !,</h3>
     <p>You are got this email because was set up the history SUCCESS on ISOFHCARE</p>
     <p>News sent in attachment:</p>
-    <p>Please check the information before proceeding to confirm the procedure is complete. If you have checked the correct information, please click on the link below to confirm the successful completion of the online medical appointment booking procedure at ISOFHCARE</p>
     <div>Thank you so much !</div>
     `;
   }

@@ -1,3 +1,5 @@
+@import "../../../styles/styles.scss";
+
 .Specialty {
   padding: 10rem 0;
   &-main {
@@ -14,6 +16,7 @@
           margin: 0 auto;
           background-color: rgb(176, 216, 205);
           border-radius: 0.5rem;
+          box-shadow: $box-shadowImg;
         }
       }
     }

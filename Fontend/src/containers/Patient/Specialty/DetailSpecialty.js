@@ -122,6 +122,16 @@ class DetailSpecialty extends Component {
       <>
         <HomeHeader />
         <div className="detailSpecialty container">
+          <div className="description">
+            {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty) && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dataDetailSpecialty.descriptionHTML,
+                }}
+              ></div>
+            )}
+          </div>
+
           <div className="search">
             <select onChange={(event) => this.handleOnchangeSelect(event)}>
               {listProvince &&
@@ -134,16 +144,6 @@ class DetailSpecialty extends Component {
                   );
                 })}
             </select>
-          </div>
-
-          <div className="description">
-            {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty) && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: dataDetailSpecialty.descriptionHTML,
-                }}
-              ></div>
-            )}
           </div>
 
           {arrDoctorID &&

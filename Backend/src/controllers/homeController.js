@@ -33,7 +33,7 @@ let editCRUD = async (req, res) => {
   let userID = req.query.id;
   if (userID) {
     let userData = await CRUDServices.getUserInfoById(userID);
-    console.log(userData);
+    // console.log(userData);
     return res.render("editUser.ejs", {
       user: userData,
     });

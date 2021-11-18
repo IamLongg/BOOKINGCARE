@@ -106,7 +106,7 @@ class ManageSpecialty extends Component {
                 className="btnSaveSpecialty"
                 onClick={() => this.handleSaveSpecialty()}
               >
-                Save
+                Thêm
               </button>
             </div>
           </div>

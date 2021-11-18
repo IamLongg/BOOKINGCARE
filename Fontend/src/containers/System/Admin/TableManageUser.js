@@ -58,11 +58,11 @@ class TableManageUser extends Component {
             <thead>
               <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Họ </th>
+                <th>Tên</th>
                 <th>Email</th>
-                <th>Address</th>
-                <th>Actions</th>
+                <th>Địa Chỉ</th>
+                <th>Chức Năng</th>
               </tr>
             </thead>
 
@@ -84,7 +84,7 @@ class TableManageUser extends Component {
                           style={{ fontSize: "1.2rem" }}
                           onClick={() => this.handleEditUser(item)}
                         >
-                          Edit
+                          Sửa
                         </button>
                         <button
                           type="button"
@@ -92,7 +92,7 @@ class TableManageUser extends Component {
                           style={{ fontSize: "1.2rem" }}
                           onClick={() => this.handleDeleteUser(item)}
                         >
-                          Delete
+                          Xóa
                         </button>
                       </td>
                     </tr>
@@ -102,11 +102,11 @@ class TableManageUser extends Component {
           </table>
         </section>
 
-        <MdEditor
+        {/* <MdEditor
           style={{ height: "500px" }}
           renderHTML={(text) => mdParser.render(text)}
           onChange={handleEditorChange}
-        />
+        /> */}
       </>
     );
   }

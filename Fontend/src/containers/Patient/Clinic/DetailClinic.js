@@ -66,7 +66,7 @@ class DetailClinic extends Component {
     return (
       <>
         <HomeHeader />
-        <div className="detailClinic container">
+        <div className="detailClinic">
           <div className="description">
             {dataDetailClinic && !_.isEmpty(dataDetailClinic) && (
               <div
