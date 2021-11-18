@@ -194,3 +194,21 @@ hr {
 strong {
   font-size: 2rem;
 }
+
+@media screen and (max-width: 991px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 40%;
+  }
+}

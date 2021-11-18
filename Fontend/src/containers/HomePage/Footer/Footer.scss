@@ -1,5 +1,5 @@
 .Footer {
-  padding: 8rem 0;
+  padding: 10rem 0;
   background-color: #00977b;
   margin-top: 5rem;
   &-title {
@@ -82,5 +82,12 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .Footer-row {
+    grid-gap: 1.5rem;
+    gap: 6rem;
   }
 }

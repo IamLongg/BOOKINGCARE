@@ -43,3 +43,13 @@
   opacity: 0.5;
   font-size: 3.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .About-main-box {
+    width: 100%;
+  }
+  .About-main-appdown {
+    width: 100%;
+    margin: 2rem 0;
+  }
+}

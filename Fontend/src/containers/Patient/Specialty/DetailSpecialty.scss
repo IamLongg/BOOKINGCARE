@@ -66,3 +66,13 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .detailSpecialty-schedule {
+    display: flex;
+    flex-direction: column;
+  }
+  .detailSpecialty .detailSpecialty-schedule .infoOfDoctor {
+    margin-bottom: 2rem;
+  }
+}

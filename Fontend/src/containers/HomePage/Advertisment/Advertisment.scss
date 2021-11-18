@@ -17,3 +17,9 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .advertisment-main {
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  }
+}

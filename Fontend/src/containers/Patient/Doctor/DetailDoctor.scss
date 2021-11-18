@@ -74,3 +74,18 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .doctor-detail .flex {
+    display: flex;
+    flex-direction: column;
+    .doctor-desc {
+      width: 100%;
+    }
+    .doctor-calender {
+      width: 100%;
+      background: #fff;
+      margin: 3rem 0;
+    }
+  }
+}

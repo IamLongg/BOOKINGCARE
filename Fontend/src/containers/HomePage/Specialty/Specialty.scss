@@ -42,3 +42,9 @@
   color: #12a58b;
   opacity: 0.5;
 }
+
+@media screen and (max-width: 768px) {
+  .Specialty-main .img-custom .box .image {
+    width: 100%;
+  }
+}

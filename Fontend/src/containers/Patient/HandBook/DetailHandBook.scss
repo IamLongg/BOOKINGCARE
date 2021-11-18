@@ -65,3 +65,11 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .HandBook-main-box {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+  }
+}
