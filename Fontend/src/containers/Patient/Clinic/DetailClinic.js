@@ -81,7 +81,7 @@ class DetailClinic extends Component {
             arrDoctorID.length > 0 &&
             arrDoctorID.map((item, index) => {
               return (
-                <div className="detailClinic-schedule" key={index}>
+                <div className="detailClinic-schedule container" key={index}>
                   <div className="infoOfDoctor">
                     <h2 className="heading">
                       <FormattedMessage id="page-detail-specialty.infoDoctor" />
