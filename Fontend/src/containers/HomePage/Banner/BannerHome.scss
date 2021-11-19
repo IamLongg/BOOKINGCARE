@@ -46,3 +46,8 @@
   font-size: 6px;
   line-height: 20px;
 }
+@media screen and (max-width: 768px) {
+  .BannerHome-main .img-custom .image {
+    height: 22rem;
+  }
+}

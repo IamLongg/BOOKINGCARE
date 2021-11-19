@@ -84,19 +84,31 @@ class Footer extends Component {
               </div>
               <h2>
                 FaceBook
-                <a href="" className="Footer-row-socials-link">
+                <a
+                  href="https://www.facebook.com/B%E1%BB%87nh-vi%E1%BB%87n-Isofhcare-108849608268818/?ref=pages_you_manage"
+                  target="_blank"
+                  className="Footer-row-socials-link"
+                >
                   <i className="fab fa-facebook"></i>
                 </a>
               </h2>
               <h2>
                 Instagram
-                <a href="" className="Footer-row-socials-link">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  className="Footer-row-socials-link"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
               </h2>
               <h2>
                 YouTube
-                <a href="" className="Footer-row-socials-link">
+                <a
+                  href="https://www.youtube.com/watch?v=QPjg4QJEtUg"
+                  target="_blank"
+                  className="Footer-row-socials-link"
+                >
                   <i className="fab fa-youtube"></i>
                 </a>
               </h2>
