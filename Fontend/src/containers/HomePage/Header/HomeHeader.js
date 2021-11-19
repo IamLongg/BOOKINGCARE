@@ -55,7 +55,7 @@ class HomeHeader extends Component {
               </li>
             </ul>
           </div>
-          <div className="header-language">
+          {/* <div className="header-language">
             <div className="flag">
               <div
                 className="language-vi"
@@ -70,7 +70,7 @@ class HomeHeader extends Component {
                 }}
               ></div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {this.props.isShowSearch === true && (
