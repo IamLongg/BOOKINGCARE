@@ -26,6 +26,12 @@ let getTopDoctorHome = (limit) => {
             as: "genderData",
             attributes: ["valueEn", "valueVi"],
           },
+          {
+            model: db.Doctor_Info,
+            attributes: {
+              exclude: ["id", "doctorID"],
+            },
+          },
         ],
         raw: true,
         nest: true,

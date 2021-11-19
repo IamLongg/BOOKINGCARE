@@ -13,10 +13,31 @@
       text-transform: capitalize;
       margin: 3rem 0;
     }
-
     p {
       font-size: 1.4rem;
       color: #222;
+    }
+    ul {
+      list-style: none;
+      position: relative;
+      li {
+        margin: 0.8rem 0;
+        padding-left: 2.4rem;
+        &::before {
+          content: " ";
+          background: #00ba99;
+          display: inline-block;
+          position: absolute;
+          border-radius: 50%;
+          left: 1rem;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-top: 0.7rem;
+        }
+        span {
+          font-size: 1.4rem;
+        }
+      }
     }
   }
   .search {

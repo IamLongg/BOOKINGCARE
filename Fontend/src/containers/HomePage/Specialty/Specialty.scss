@@ -12,7 +12,11 @@
         cursor: pointer;
         .image {
           width: 50%;
-          object-fit: cover;
+          height: 10rem;
+          background: url("");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
           margin: 0 auto;
           background-color: rgb(176, 216, 205);
           border-radius: 0.5rem;

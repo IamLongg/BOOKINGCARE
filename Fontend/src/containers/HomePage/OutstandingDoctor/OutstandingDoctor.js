@@ -100,7 +100,9 @@ class OutstandingDoctor extends Component {
                           <p className="subtitle">
                             <FormattedMessage id="outstandingdoctor-home.doctor" />
                           </p>
-                          <p className="subtitle">chuyên khoa tai mũi họng</p>
+                          <p className="subtitle">
+                            {item.Doctor_Info.nameClinic}
+                          </p>
                         </div>
                       </div>
                     );

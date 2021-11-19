@@ -434,7 +434,7 @@ class ManageDoctor extends Component {
                 <Select
                   value={this.state.selectedSpecialty}
                   onChange={this.handleChangeSelectDoctorInfo}
-                  options={this.state.listSpecialty}
+                  options={listSpecialty}
                   placeholder={
                     <FormattedMessage id="manage-schedule.chooseSpecialty" />
                   }

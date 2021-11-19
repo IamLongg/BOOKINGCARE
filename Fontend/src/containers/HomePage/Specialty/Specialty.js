@@ -59,8 +59,7 @@ class Specialty extends Component {
                       onClick={() => this.handleViewDetailSpecialty(item)}
                     >
                       <div className="box">
-                        <img
-                          src={specialtyImg}
+                        <div
                           className="image"
                           style={{ backgroundImage: `url(${item.image})` }}
                         />
