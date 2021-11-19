@@ -39,7 +39,7 @@ class OutstandingDoctor extends Component {
   render() {
     let arrDoctors = this.state.arrDoctors;
     let { language } = this.props;
-    arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
+    // arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
     console.log("brodev check topDoctorRedux :", this.props.topDoctorRedux);
     let settings = {
       dots: false,
