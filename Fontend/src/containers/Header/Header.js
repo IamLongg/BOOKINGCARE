@@ -58,7 +58,7 @@ class Header extends Component {
                 : "")
             }{" "}
           </div>
-          <div
+          {/* <div
             className="language-vi"
             onClick={() => {
               this.handleChangeLanguage(LANGUAGES.VI);
@@ -69,7 +69,7 @@ class Header extends Component {
             onClick={() => {
               this.handleChangeLanguage(LANGUAGES.EN);
             }}
-          ></div>
+          ></div> */}
           {/* nút logout */}
           <div
             className="btn btn-logout"
