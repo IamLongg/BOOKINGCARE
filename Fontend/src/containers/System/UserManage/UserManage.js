@@ -135,7 +135,7 @@ class UserManage extends Component {
               </h2>
             </div>
           </div>
-          <div
+          {/* <div
             className="btn-primary"
             onClick={() => {
               this.handleAddNewUser();
@@ -143,7 +143,7 @@ class UserManage extends Component {
           >
             <i className="fas fa-plus-circle" style={{ margin: "0 5px" }}></i>
             Thêm dùng người mới
-          </div>
+          </div> */}
         </div>
         <table>
           <thead>
@@ -153,7 +153,7 @@ class UserManage extends Component {
               <th>Tên</th>
               <th>Email</th>
               <th>Địa Chỉ</th>
-              <th>Chức Năng</th>
+              {/* <th>Chức Năng</th> */}
             </tr>
           </thead>
 
@@ -168,7 +168,7 @@ class UserManage extends Component {
                       <td>{item.lastName}</td>
                       <td>{item.email}</td>
                       <td>{item.address}</td>
-                      <td>
+                      {/* <td>
                         <button
                           type="button"
                           className="btn btn-info "
@@ -189,7 +189,7 @@ class UserManage extends Component {
                         >
                           Xóa
                         </button>
-                      </td>
+                      </td> */}
                     </tr>
                   </>
                 );
