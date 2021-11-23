@@ -82,25 +82,22 @@ class Login extends Component {
           <form>
             <div className="mb-4">
               <input
-                style={{ fontSize: "1.4rem" }}
+                style={{ fontSize: "1.4rem", margin: "2rem 0" }}
                 type="text"
                 className="form-control"
-                placeholder="Enter Username"
+                placeholder="Nhập tên tài khoản"
                 value={this.state.email}
                 onChange={(event) => {
                   this.handleChangeUser(event);
                 }}
               />
-              <p className="form-text text-end" style={{ fontSize: "1.2rem" }}>
-                Enter Valid User
-              </p>
             </div>
             <div className="mb-4" style={{ position: "relative" }}>
               <input
-                style={{ fontSize: "1.4rem" }}
+                style={{ fontSize: "1.4rem", margin: "2rem 0" }}
                 type={this.state.isShowPass ? "text" : "password"}
                 className="form-control"
-                placeholder="Enter Password"
+                placeholder="Nhập mật khẩu"
                 value={this.state.password}
                 onChange={(event) => {
                   this.handleChangePass(event);
@@ -124,9 +121,6 @@ class Login extends Component {
                   }}
                 ></i>
               </span>
-              <p className="form-text text-end" style={{ fontSize: "1.2rem" }}>
-                Enter Valid Password
-              </p>
             </div>
             <div
               className="mb-4 form-check w-100"
@@ -138,7 +132,7 @@ class Login extends Component {
                   className="form-check-input"
                   style={{ fontSize: "1.2rem" }}
                 />{" "}
-                Remember Me
+                Ghi Nhớ
               </label>
               <a
                 href="#"
@@ -147,7 +141,7 @@ class Login extends Component {
                   this.handleResetPass();
                 }}
               >
-                Reset Password
+                Reset Mật Khẩu
               </a>
             </div>
             <div className="mb-4" style={{ color: "red" }}>
@@ -156,16 +150,13 @@ class Login extends Component {
             <button
               type="button"
               className="btn btn-primary w-100 my-3 shadow"
-              style={{ margin: "0", padding: "0" }}
+              style={{ margin: "0", padding: "0", fontSize: "1.4rem" }}
               onClick={() => {
                 this.handleLogin();
               }}
             >
-              Login
+              Đăng Nhập
             </button>
-            <p className="text-center m-0">
-              Not yet account, <a href="#">Please Signup</a>
-            </p>
           </form>
         </div>
       </div>
