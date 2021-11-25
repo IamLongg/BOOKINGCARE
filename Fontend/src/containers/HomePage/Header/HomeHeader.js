@@ -5,15 +5,28 @@ import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../../utils";
 import { changeLanguageApp } from "../../../store/actions";
 import { withRouter } from "react-router";
+import { MenuItems } from "./Navbar/MenuItems";
+import { Button } from "./Button";
+
 class HomeHeader extends Component {
   changeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
+  };
+
+  state = {
+    clicked: false,
   };
 
   handleReturnToHome = () => {
     if (this.props.history) {
       this.props.history.push(`/home`);
     }
+  };
+
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked,
+    });
   };
   render() {
     let language = this.props.language;
@@ -25,36 +38,31 @@ class HomeHeader extends Component {
             onClick={() => this.handleReturnToHome()}
           ></div>
           <div className="header-navbar">
-            <ul>
-              <li>
-                {" "}
-                <a href="#" onClick={() => this.handleReturnToHome()}>
-                  <FormattedMessage id="homeheader.homepage" />
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a href="#specialty" onClick={() => this.handleReturnToHome()}>
-                  <FormattedMessage id="homeheader.speciality" />
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a
-                  href="#healthFaciality"
-                  onClick={() => this.handleReturnToHome()}
-                >
-                  <FormattedMessage id="homeheader.health-facilities" />
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a href="#handbook" onClick={() => this.handleReturnToHome()}>
-                  <FormattedMessage id="homeheader.handbook" />
-                </a>
-              </li>
+            <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+              {MenuItems &&
+                MenuItems.length > 0 &&
+                MenuItems.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      {" "}
+                      <a
+                        className={item.cName}
+                        href={item.url}
+                        onClick={() => this.handleReturnToHome()}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  );
+                })}
             </ul>
+            <div className="menu-icons " onClick={this.handleClick}>
+              <i
+                className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+              ></i>
+            </div>
           </div>
+
           {/* <div className="header-language">
             <div className="flag">
               <div

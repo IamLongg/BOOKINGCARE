@@ -55,6 +55,18 @@
       }
     }
   }
+
+  .menu-icons {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+    i {
+      font-size: 2.6rem;
+      color: #1a9c84;
+    }
+  }
+
   .header-language {
     width: 10%;
     display: flex;
@@ -148,4 +160,47 @@
 
 .home-title {
   padding: 5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .home-header-container {
+    position: relative;
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      height: calc(100vh - 30vh);
+      position: absolute;
+      top: 10rem;
+      right: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+      &.active {
+        background-color: #f1f1f1;
+        right: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+      }
+      li {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .menu-icons {
+      display: block;
+      position: absolute;
+      top: 4rem;
+      right: 4rem;
+    }
+
+    .header-logo {
+      width: 70%;
+    }
+  }
 }
